@@ -1,0 +1,26 @@
+{
+  "theme": "Bold Masculine",
+  "colors": {
+    "background": "#111410",
+    "surface": "#1A1E16",
+    "olive": "#737A49",
+    "oliveDark": "#535C37",
+    "cream": "#F4F0E3",
+    "goldAccent": "#C4B47E",
+    "textMuted": "#BCC0B2",
+    "border": "#363D2A",
+    "whatsapp": "#28BD68"
+  },
+  "typography": {
+    "headings": "Barlow Condensed 700/800",
+    "body": "Arial, Helvetica, sans-serif"
+  },
+  "radii": {
+    "card": "6px",
+    "button": "6px"
+  },
+  "breakpoints": {
+    "tablet": "620px",
+    "desktop": "960px"
+  }
+}
