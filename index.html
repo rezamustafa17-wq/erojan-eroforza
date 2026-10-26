@@ -83,8 +83,8 @@ body{background:var(--bg);font-family:Arial,Helvetica,sans-serif;line-height:1.6
 
 </style>
 <link rel="stylesheet" href="assets/ui/supporting-assets.css">
-<link rel="stylesheet" href="assets/floating-chat.css?v=20261026-2">
-<script src="assets/floating-chat.js?v=20261026-2" defer></script>
+<link rel="stylesheet" href="assets/floating-chat.css?v=20261026-3">
+<script src="assets/floating-chat.js?v=20261026-3" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#konten">Lewati ke konten</a>
@@ -249,15 +249,17 @@ body{background:var(--bg);font-family:Arial,Helvetica,sans-serif;line-height:1.6
     </section>
   </main>
   <footer class="site-footer"><div class="container footer-inner"><p><strong>EROJAN by Wellous · Informasi oleh Eza</strong></p><p>Periksa data terbaru melalui portal BPOM dan BPJPH resmi.</p><p><a class="inline-link" href="https://wa.me/6281391939099?text=Halo%20Eza%2C%20saya%20ingin%20bertanya%20tentang%20EROJAN." target="_blank" rel="noopener noreferrer">WhatsApp 0813-9193-9099</a></p></div></footer>
-  <aside class="chat-card chat-nudge" id="chatCard" hidden aria-label="Konsultan Erojan" role="status">
-    <span class="nudge-avatar" aria-hidden="true"><img src="assets/whatsapp.svg" alt="" width="25" height="25"></span>
-    <div class="nudge-copy"><strong>Konsultan Erojan Online</strong><p><span class="online-dot" aria-hidden="true"></span>Siap Balas Cepat</p></div>
-    <button class="chat-close" id="chatClose" type="button" aria-label="Tutup sapaan">×</button>
+  <aside class="chat-card chat-preview" id="chatCard" hidden aria-label="Contoh percakapan dengan Eza">
+    <div class="chat-preview-head"><span class="chat-mini-avatar" aria-hidden="true">E</span><div><strong>Eza · Informasi EROJAN</strong><small>Contoh percakapan</small></div><button class="chat-close" id="chatClose" type="button" aria-label="Tutup percakapan">×</button></div>
+    <div class="chat-preview-body" aria-live="polite" aria-relevant="additions text">
+      <div class="chat-preview-message" id="messageOne" hidden>Halo Om Bro, ada yang ingin ditanyakan tentang EROJAN?</div>
+      <div class="chat-preview-message" id="messageTwo" hidden>Eza siap bantu jelaskan komposisi dan cara cek produknya. Tanya dulu saja.</div>
+      <div class="chat-preview-typing" id="chatTyping" aria-label="Contoh animasi mengetik"><span></span><span></span><span></span></div>
+    </div>
   </aside>
   <a class="wa-float" id="waFloat" href="https://wa.me/6281391939099?text=Halo%20Eza%2C%20saya%20ingin%20bertanya%20tentang%20EROJAN." target="_blank" rel="noopener noreferrer" aria-label="Konsultan Erojan Online Siap Balas Cepat — buka WhatsApp">
-    <span class="wa-radar" aria-hidden="true"><span></span><span></span><span></span></span>
-    <img class="wa-icon" src="assets/whatsapp.svg" width="30" height="30" alt="">
-    <span class="sr-only">Konsultan Erojan Online Siap Balas Cepat</span>
+    <span class="wa-label"><strong>Konsultan Erojan Online</strong><span><i class="online-dot" aria-hidden="true"></i>Siap Balas Cepat</span></span>
+    <span class="wa-icon-wrap"><span class="wa-radar" aria-hidden="true"><span></span><span></span><span></span></span><img class="wa-icon" src="assets/whatsapp.svg" width="30" height="30" alt=""></span>
   </a>
 </body>
 </html>
