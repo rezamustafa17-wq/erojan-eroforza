@@ -18,7 +18,7 @@
     @media(min-width:860px){.nav-links{display:flex}.hero{padding:28px 0 68px}.hero-grid{grid-template-columns:minmax(360px,.95fr) minmax(0,1.05fr);gap:54px}.hero-photo{width:100%;height:min(58vw,620px);max-height:620px;margin:0}.hero-actions{margin-top:29px}.product-visual{min-height:450px;padding:25px}.product-visual img{max-height:440px}.trust-list{gap:22px}.trust-item{font-size:.84rem}.testo-grid{gap:16px}.ingredient-grid{grid-template-columns:repeat(3,1fr);gap:15px}.ingredient{min-height:148px;padding:20px}.ingredient h3{font-size:1rem}.product-info-grid{grid-template-columns:1.1fr .9fr;gap:50px}.legal-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.footer-inner{flex-direction:row;justify-content:space-between;align-items:center}.site-footer{padding-bottom:28px}}
     @media(max-width:380px){.container{width:calc(100% - 26px)}.brand{font-size:.78rem}.nav-cta{padding:8px 10px;font-size:.76rem}.hero-copy h1{font-size:2.25rem}.hero-fact{font-size:.72rem;padding:9px}.ingredient{padding:14px 8px}.ingredient h3{font-size:.84rem}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-  
+
 
 @font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:700;font-display:swap;src:url("barlow-condensed-700-latin.woff2") format("woff2")}
 @font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:800;font-display:swap;src:url("barlow-condensed-800-latin.woff2") format("woff2")}
@@ -40,5 +40,3 @@ body{background:var(--bg);font-family:Arial,Helvetica,sans-serif;line-height:1.6
 @media(min-width:860px) and (max-width:959px){.hero-grid{grid-template-columns:1fr}.hero-photo{max-height:470px}.nav-links{display:none}.hero-copy{margin-top:-16px}}
 @media(max-width:380px){.hero-copy h1{font-size:3.3rem}.hero-fact{font-size:.63rem}.brand{font-size:1.5rem}.nav-cta{font-size:.7rem;padding:9px 12px}.ingredient h3{font-size:.77rem}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-
-
