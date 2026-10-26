@@ -33,7 +33,7 @@
     initialized = true;
     window.gtag('js', new Date());
     if (ga4) {
-      window.gtag('config', ga4, {send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false});
+      window.gtag('config', ga4, {send_page_view: false, page_location: safePage, page_referrer: '', allow_google_signals: false, allow_ad_personalization_signals: false});
       window.gtag('event', 'page_view', {send_to: ga4, page_location: safePage, page_referrer: '', page_title: document.title});
     }
     if (ads && label) window.gtag('config', ads, {allow_ad_personalization_signals: false});
