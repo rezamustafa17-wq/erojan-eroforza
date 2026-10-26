@@ -26,3 +26,11 @@ Pemeriksaan mencakup satu H1, ID dan anchor, aset lokal, ikon SVG, gambar dengan
 ## Pengukuran dan hosting
 
 Tracking konversi, penerimaan pesan oleh operator, Search Console, audit menyeluruh isi video, dan konfigurasi hosting tidak dibuktikan oleh pemeriksaan struktur. Catat hasil nyata di `docs/STATUS.md` agar pemeriksaan yang belum dilakukan tidak tertukar dengan yang sudah lulus.
+
+## Alur notifikasi dan pembukaan kembali
+
+- Biarkan dua pesan awal selesai; setelah 5 detik diam, panel diganti ikon chat dengan badge merah 2.
+- Klik ikon: dua pesan tambahan langsung terlihat, badge dihapus, dan tombol konsultasi WhatsApp tersedia.
+- Tunggu saat panel dibuka ulang: panel tetap terbuka untuk dibaca.
+- Tutup dan buka lagi: tetap empat pesan, tanpa duplikasi.
+- Label konsultan pada tombol WhatsApp tetap terlihat dalam seluruh keadaan.

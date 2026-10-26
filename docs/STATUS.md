@@ -69,3 +69,16 @@ Permintaan terbaru mengoreksi pemisahan tampilan: animasi percakapan harus tetap
 - Commit publikasi: `15eb8cb79c0ec0f97f9c53d1f267a2212b86d135`.
 - Verifikasi situs aktif ponsel (460 px): kedua pesan tampil bertahap, panel setinggi sekitar 180 px, tombol 274 px, tanpa luapan horizontal. Sesudah panel otomatis hilang, kedua baris label tetap terlihat dan berada di dalam tombol WhatsApp.
 - Bukti: `.local-state/qa/conversation-live-with-label.png` dan `.local-state/qa/conversation-live-label-after-hide.png`.
+
+## Revisi: ikon notifikasi dan percakapan lanjutan
+
+- Dua pesan awal tetap tampil bertahap dengan animasi mengetik.
+- Panel menutup setelah 5 detik tanpa aktivitas sesudah pesan kedua. Aktivitas mengulang waktu diam.
+- Panel yang ditutup berubah menjadi ikon chat bundar dengan notifikasi merah 2, di atas kapsul WhatsApp yang tetap terlihat.
+- Klik ikon langsung menampilkan dua pesan tambahan persis sesuai permintaan pengguna, berikut tautan konsultasi WhatsApp.
+- Setelah dibuka, notifikasi dibersihkan. Panel dapat ditutup dan dibuka lagi tanpa pesan ganda dan tanpa menutup otomatis saat dibaca.
+- Pemeriksaan lokal berhasil: panel awal menutup menjadi tombol; pembukaan menampilkan empat pesan; badge tersembunyi setelah dibaca; tidak ada luapan horizontal.
+- Bukti lokal: `.local-state/qa/unread-chat-local.png` dan `.local-state/qa/unread-chat-open-local.png`.
+- Commit publikasi revisi notifikasi: `2b8e4aa799eb22fcc3fc1c83263d40aabc05fe3a`.
+- Verifikasi situs aktif ponsel (460 px) berhasil: dua pesan awal tercatat sudah tampil, panel otomatis tertutup, ikon dan badge merah 2 terlihat; klik ikon membuka empat pesan sekaligus dengan dua pesan tambahan, badge dibersihkan, CTA tersedia, dan tidak ada luapan horizontal.
+- Bukti situs aktif: `.local-state/qa/unread-chat-live-badge.png` dan `.local-state/qa/unread-chat-live-open.png`.

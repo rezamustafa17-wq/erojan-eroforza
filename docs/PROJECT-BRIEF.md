@@ -46,3 +46,7 @@ Pada tindak lanjut 26 Oktober 2026, pengguna meminta logo WhatsApp, radar hijau 
 ## Koreksi animasi dan label permanen
 
 Pengguna menegaskan animasi percakapan tetap diperlukan. Implementasi terkini mengembalikan indikator mengetik dan dua pesan berurutan pada panel sementara. Teks “Konsultan Erojan Online Siap Balas Cepat” menjadi label tetap yang menyatu dengan tombol WhatsApp. Menutup panel tidak menyembunyikan label. Koreksi dipublikasikan melalui commit `15eb8cb79c0ec0f97f9c53d1f267a2212b86d135`.
+
+## Alur pesan lanjutan melalui notifikasi
+
+Pengguna meminta panel percakapan awal menutup setelah tidak ada aksi, diganti ikon bundar dengan badge merah 2. Klik ikon membuka dua pesan tambahan yang disediakan pengguna. Label WhatsApp tetap terlihat. Pembukaan menandai pesan sebagai dibaca dan menjaga panel tetap terbuka untuk konsultasi. Publikasi khusus floating chat memakai commit `2b8e4aa799eb22fcc3fc1c83263d40aabc05fe3a`.

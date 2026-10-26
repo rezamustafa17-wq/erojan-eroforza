@@ -14,13 +14,15 @@ Video berada di `assets/video/erojan-product.mp4`. Pemutaran dimulai oleh pengun
 
 ## Floating chat
 
-Tombol WhatsApp selalu menampilkan label “Konsultan Erojan Online” dan “Siap Balas Cepat”, menyatu dengan ikon WhatsApp pada kapsul selebar 274 px dan tinggi 58 px. Label tetap terlihat sebelum, selama, dan sesudah animasi percakapan.
+Label “Konsultan Erojan Online” dan “Siap Balas Cepat” tetap menyatu dengan tombol WhatsApp pada kapsul 274 × 58 px. Jalur langsung ke WhatsApp tetap tersedia sepanjang waktu.
 
-Panel contoh percakapan muncul setelah 2,5 detik. Indikator mengetik tampil terlebih dahulu, diikuti pesan pertama setelah 0,85 detik. Indikator mengetik muncul kembali, kemudian pesan kedua tampil setelah 2,9 detik. Panel hilang 6,5 detik sesudah mulai tampil. Klik halaman/pesan, X, atau Escape menutup panel lebih awal dan membatalkan semua jadwal pesan berikutnya. Panel tidak terbuka kembali sampai halaman dimuat ulang.
+Panel contoh percakapan mulai tampil setelah 2,5 detik: indikator mengetik, pesan pertama setelah 0,85 detik, indikator mengetik kembali, lalu pesan kedua setelah 2,9 detik. Setelah kedua pesan tampil, panel menutup jika tidak ada aktivitas selama 5 detik. Gerakan scroll, sentuhan, keyboard, atau interaksi dalam panel mengulang hitungan waktu diam. Klik di luar panel, X, dan Escape dapat menutup lebih awal.
 
-Ikon WhatsApp memantul berkala setelah panel ditutup. Tiga cincin radar hijau menjalankan masing-masing tiga putaran lalu berhenti. Label tetap diam dan terbaca. Reduced motion mematikan animasi gerak. Tombol selalu mengarah langsung ke nomor Eza yang sudah tersimpan.
+Penutupan mengganti panel menjadi tombol chat bundar 48 px di atas kapsul WhatsApp, dengan badge merah “2”. Menekan tombol membuka panel dan langsung menampilkan empat pesan: dua pesan awal dan dua pesan tambahan sesuai teks pengguna. Badge dihapus setelah pesan tambahan dibuka. Panel yang dibuka kembali tidak memiliki waktu penutupan otomatis; pengunjung bisa membaca dan mengeklik “Konsultasi gratis via WhatsApp”. Menutup lalu membuka lagi menampilkan empat pesan yang sama tanpa duplikasi.
 
-Panel ditandai “Contoh percakapan”; ini animasi lokal tanpa backend chat atau pengiriman data formulir.
+Panel panjang dapat digulir dan dibatasi sesuai tinggi layar. Pembukaan mengarahkan fokus ke panel dan posisi gulir ke pesan tambahan. Penutupan melalui keyboard memindahkan fokus kembali ke ikon chat. Ikon WhatsApp memantul berkala dengan tiga putaran tiap cincin radar hijau; reduced motion mematikan animasi gerak.
+
+Panel ditandai “Contoh percakapan”; ini interaksi lokal tanpa backend chat atau pengiriman pesan otomatis.
 
 ## Paket dan pratinjau
 
