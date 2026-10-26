@@ -14,9 +14,13 @@ Video berada di `assets/video/erojan-product.mp4`. Pemutaran dimulai oleh pengun
 
 ## Floating chat
 
-Pesan singkat muncul 2,5 detik setelah halaman siap, lalu hilang 6 detik kemudian. Pesan menampilkan “Konsultan Erojan Online” dan “Siap Balas Cepat” dalam kapsul 278 × 64 piksel pada desktop. Mengetuk halaman atau pesan, menekan X, mengeklik ikon WhatsApp, atau menekan Escape menutupnya. Pesan tidak muncul kembali selama halaman tersebut belum dimuat ulang. Ikon WhatsApp tetap mengarah langsung ke kontak Eza. Logo WhatsApp memakai SVG dari Simple Icons. Tiga cincin radar hijau menjalankan masing-masing tiga putaran setelah pesan hilang, lalu berhenti. Ikon tetap memantul berkala. Semua animasi dimatikan bila perangkat meminta reduced motion.
+Tombol WhatsApp selalu menampilkan label “Konsultan Erojan Online” dan “Siap Balas Cepat”, menyatu dengan ikon WhatsApp pada kapsul selebar 274 px dan tinggi 58 px. Label tetap terlihat sebelum, selama, dan sesudah animasi percakapan.
 
-Ini sapaan lokal, bukan sistem percakapan langsung. Tidak ada backend chat atau pengiriman data formulir.
+Panel contoh percakapan muncul setelah 2,5 detik. Indikator mengetik tampil terlebih dahulu, diikuti pesan pertama setelah 0,85 detik. Indikator mengetik muncul kembali, kemudian pesan kedua tampil setelah 2,9 detik. Panel hilang 6,5 detik sesudah mulai tampil. Klik halaman/pesan, X, atau Escape menutup panel lebih awal dan membatalkan semua jadwal pesan berikutnya. Panel tidak terbuka kembali sampai halaman dimuat ulang.
+
+Ikon WhatsApp memantul berkala setelah panel ditutup. Tiga cincin radar hijau menjalankan masing-masing tiga putaran lalu berhenti. Label tetap diam dan terbaca. Reduced motion mematikan animasi gerak. Tombol selalu mengarah langsung ke nomor Eza yang sudah tersimpan.
+
+Panel ditandai “Contoh percakapan”; ini animasi lokal tanpa backend chat atau pengiriman data formulir.
 
 ## Paket dan pratinjau
 

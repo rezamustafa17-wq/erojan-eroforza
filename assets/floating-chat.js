@@ -3,21 +3,28 @@
   const card = document.getElementById('chatCard');
   const close = document.getElementById('chatClose');
   const floating = document.getElementById('waFloat');
-  if (!card || !close || !floating) return;
+  const typing = document.getElementById('chatTyping');
+  const first = document.getElementById('messageOne');
+  const second = document.getElementById('messageTwo');
+  if (!card || !close || !floating || !typing || !first || !second) return;
 
   let dismissed = false;
-  let hideTimer;
-  const showTimer = setTimeout(() => {
-    if (dismissed) return;
+  const timers = [];
+  function later(delay, action) {
+    timers.push(setTimeout(() => { if (!dismissed) action(); }, delay));
+  }
+  later(2500, () => {
     card.hidden = false;
-    hideTimer = setTimeout(dismissChat, 6000);
-  }, 2500);
+    later(850, () => { typing.hidden = true; first.hidden = false; });
+    later(1700, () => { typing.hidden = false; });
+    later(2900, () => { typing.hidden = true; second.hidden = false; });
+    later(6500, dismissChat);
+  });
 
   function dismissChat() {
     if (dismissed) return;
     dismissed = true;
-    clearTimeout(showTimer);
-    clearTimeout(hideTimer);
+    timers.forEach(clearTimeout);
     const restoreFocus = card.contains(document.activeElement);
     card.hidden = true;
     floating.classList.add('is-bouncing');

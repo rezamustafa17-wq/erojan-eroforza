@@ -8,7 +8,7 @@ Diperbarui: 26 Oktober 2026, WIB.
 - Foto, mockup, pratinjau lama, video, laporan validasi, dan rancangan kampanye dikumpulkan ke `references/` lokal. Delapan file sumber dicatat dalam manifest.
 - Video produk disalin ke aset website dan dipasang dengan kontrol pemutaran.
 - Pemilihan URL publik R2 disiapkan melalui `config/media.json`; sumber lokal tetap tersedia.
-- Sapaan chat dibuat ringkas dan lonjong, tampil setelah 2,5 detik selama 6 detik, kemudian hilang dan mengaktifkan ikon chat memantul.
+- Animasi percakapan kembali tersedia dengan indikator mengetik dan dua pesan bertahap. Label konsultan selalu menempel pada tombol WhatsApp; hanya panel percakapan yang hilang otomatis.
 - Klik pada halaman/pesan, tombol X, serta Escape menutup sapaan. Tombol WhatsApp tetap menuju Eza.
 - README, ringkasan proyek, arsitektur, panduan Git, panduan R2, sumber konten, daftar referensi, dan daftar pemeriksaan tersedia.
 - robots.txt dan sitemap.xml ditambahkan untuk domain yang sudah tercatat.
@@ -56,3 +56,16 @@ Sesi ini tidak mengaudit ulang status BPOM/BPJPH, tidak menayangkan iklan, dan t
 - Klik halaman menutup pesan berhasil diuji pada pratinjau. File build dan pemeriksaan JavaScript lulus.
 - Bukti situs aktif: `.local-state/qa/whatsapp-live-message.png` dan `.local-state/qa/whatsapp-live-icon.png`.
 - Konten utama situs dipertahankan persis dari versi sebelumnya pada publikasi khusus ini.
+
+## Koreksi: animasi percakapan dan label permanen
+
+Permintaan terbaru mengoreksi pemisahan tampilan: animasi percakapan harus tetap ada, sedangkan teks konsultan harus selalu menempel pada floating WhatsApp. Bagian ini menggantikan uraian sapaan sementara pada tindak lanjut sebelumnya.
+
+- Label “Konsultan Erojan Online” dan “Siap Balas Cepat” selalu terlihat pada kapsul WhatsApp 274 × 58 px.
+- Panel menampilkan indikator mengetik, pesan pertama, indikator mengetik kembali, lalu pesan kedua.
+- Panel muncul setelah 2,5 detik dan hilang setelah tampil 6,5 detik, atau lebih awal melalui klik halaman/pesan, X, dan Escape.
+- Menutup panel membatalkan sisa jadwal pesan. Label tetap terlihat; animasi memantul hanya berlaku pada ikon WhatsApp, dengan radar hijau terbatas.
+- Pengujian desktop lokal berhasil: label sebelum chat terlihat, indikator mengetik terlihat, kedua pesan muncul, klik halaman menutup panel, label sesudah penutupan tetap terlihat.
+- Commit publikasi: `15eb8cb79c0ec0f97f9c53d1f267a2212b86d135`.
+- Verifikasi situs aktif ponsel (460 px): kedua pesan tampil bertahap, panel setinggi sekitar 180 px, tombol 274 px, tanpa luapan horizontal. Sesudah panel otomatis hilang, kedua baris label tetap terlihat dan berada di dalam tombol WhatsApp.
+- Bukti: `.local-state/qa/conversation-live-with-label.png` dan `.local-state/qa/conversation-live-label-after-hide.png`.

@@ -42,3 +42,7 @@ Dokumen dan chat lama digunakan sebagai bukti riwayat. Instruksi di dalam bahan 
 ## Pembaruan floating WhatsApp
 
 Pada tindak lanjut 26 Oktober 2026, pengguna meminta logo WhatsApp, radar hijau beberapa kali, dan tulisan “Konsultan Erojan Online Siap Balas Cepat”. Pembaruan floating chat dikirim ke cabang produksi melalui commit `8b74dfd77c3320b1214175dae85e6b7436a4a9bf`. Berkas video dan dokumen lokal tidak termasuk dalam commit publikasi khusus floating chat ini.
+
+## Koreksi animasi dan label permanen
+
+Pengguna menegaskan animasi percakapan tetap diperlukan. Implementasi terkini mengembalikan indikator mengetik dan dua pesan berurutan pada panel sementara. Teks “Konsultan Erojan Online Siap Balas Cepat” menjadi label tetap yang menyatu dengan tombol WhatsApp. Menutup panel tidak menyembunyikan label. Koreksi dipublikasikan melalui commit `15eb8cb79c0ec0f97f9c53d1f267a2212b86d135`.
