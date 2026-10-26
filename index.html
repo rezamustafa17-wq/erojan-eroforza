@@ -83,6 +83,8 @@ body{background:var(--bg);font-family:Arial,Helvetica,sans-serif;line-height:1.6
 
 </style>
 <link rel="stylesheet" href="assets/ui/supporting-assets.css">
+<link rel="stylesheet" href="assets/experience.css">
+<script src="assets/experience.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#konten">Lewati ke konten</a>
@@ -126,6 +128,21 @@ body{background:var(--bg);font-family:Arial,Helvetica,sans-serif;line-height:1.6
         <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="assets/erojan-icons.svg#leaf"></use></svg>Enam bahan botani</div>
         <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="assets/erojan-icons.svg#capsule"></use></svg>60 kapsul per botol</div>
         <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="assets/erojan-icons.svg#chat-phone"></use></svg>Tanya Eza tanpa tekanan</div>
+      </div>
+    </section>
+    <section class="section product-video" id="video-produk" aria-labelledby="video-title">
+      <div class="container video-layout">
+        <div class="section-heading">
+          <p class="eyebrow">Mengenal EROJAN</p>
+          <h2 id="video-title">Lihat video <span class="accent">produknya.</span></h2>
+          <p>Putar video untuk melihat materi EROJAN. Untuk informasi penggunaan, tetap cocokkan dengan label pada kemasan.</p>
+        </div>
+        <div class="video-frame">
+          <video id="productVideo" controls playsinline preload="none" poster="assets/erojan-bottle.webp" src="assets/video/erojan-product.mp4" aria-label="Video produk EROJAN">
+            Browser Anda belum mendukung video. <a href="assets/video/erojan-product.mp4">Buka video EROJAN</a>.
+          </video>
+          <p class="video-help" id="videoHelp" hidden>Video belum dapat diputar. <a class="inline-link" href="assets/video/erojan-product.mp4">Buka file video</a>.</p>
+        </div>
       </div>
     </section>
     <section class="section concerns" id="keluhan">
@@ -247,38 +264,11 @@ body{background:var(--bg);font-family:Arial,Helvetica,sans-serif;line-height:1.6
     </section>
   </main>
   <footer class="site-footer"><div class="container footer-inner"><p><strong>EROJAN by Wellous · Informasi oleh Eza</strong></p><p>Periksa data terbaru melalui portal BPOM dan BPJPH resmi.</p><p><a class="inline-link" href="https://wa.me/6281391939099?text=Halo%20Eza%2C%20saya%20ingin%20bertanya%20tentang%20EROJAN." target="_blank" rel="noopener noreferrer">WhatsApp 0813-9193-9099</a></p></div></footer>
-  <aside class="chat-card" id="chatCard" hidden aria-label="Contoh percakapan WhatsApp dengan Eza">
-    <div class="chat-head"><span class="chat-avatar" aria-hidden="true">E</span><div><strong>Eza · Informasi EROJAN</strong><small>Contoh percakapan</small></div><button class="chat-close" id="chatClose" type="button" aria-label="Tutup pratinjau chat">×</button></div>
-    <div class="chat-body" id="chatMessages" aria-live="polite" aria-relevant="additions text">
-      <p class="chat-label">Pratinjau chat · bukan percakapan langsung</p>
-      <div class="typing" id="typing" hidden aria-label="Mengetik"><span></span><span></span><span></span></div>
-      <div class="bubble" id="messageOne" hidden>Halo Om Bro, ada yang ingin ditanyakan tentang EROJAN? Eza siap bantu jelaskan.<span class="bubble-time">Eza</span></div>
-      <div class="bubble" id="messageTwo" hidden>Mau mulai dari komposisi, aturan pada label, atau cara cek izin? Tanya dulu saja, tidak harus langsung membeli.<span class="bubble-time">Eza</span></div>
-    </div>
-    <div class="chat-action"><a href="https://wa.me/6281391939099?text=Halo%20Eza%2C%20saya%20ingin%20bertanya%20tentang%20EROJAN." target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/erojan-icons.svg#chat-phone"></use></svg>Lanjut chat di WhatsApp</a><p class="chat-footnote">Suplemen bukan pengganti pemeriksaan medis.</p></div>
+  <aside class="chat-card chat-nudge" id="chatCard" hidden aria-label="Sapaan dari Eza" role="status">
+    <span class="nudge-avatar" aria-hidden="true">E</span>
+    <div class="nudge-copy"><strong>Eza · Informasi EROJAN</strong><p>Halo Om Bro, mau tanya EROJAN? Chat Eza di sini.</p></div>
+    <button class="chat-close" id="chatClose" type="button" aria-label="Tutup sapaan">×</button>
   </aside>
-  <a class="wa-float" id="waFloat" href="https://wa.me/6281391939099?text=Halo%20Eza%2C%20saya%20ingin%20bertanya%20tentang%20EROJAN." target="_blank" rel="noopener noreferrer" aria-label="Tanya Eza lewat WhatsApp"><svg class="icon" aria-hidden="true"><use href="assets/erojan-icons.svg#chat-phone"></use></svg><span>Tanya Eza</span></a>
-  <script>
-    (function(){
-      var card=document.getElementById('chatCard');
-      var close=document.getElementById('chatClose');
-      var typing=document.getElementById('typing');
-      var one=document.getElementById('messageOne');
-      var two=document.getElementById('messageTwo');
-      var dismissed=false;
-      function showChat(){if(!dismissed){card.hidden=false;}}
-      function showFirst(){if(dismissed)return;showChat();typing.hidden=true;one.hidden=false;}
-      function showSecond(){if(dismissed)return;typing.hidden=true;two.hidden=false;}
-      close.addEventListener('click',function(){dismissed=true;card.hidden=true;});
-      var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if(reduced){window.setTimeout(function(){showChat();one.hidden=false;two.hidden=false;},8000);}
-      else{
-        window.setTimeout(function(){if(dismissed)return;showChat();typing.hidden=false;},8000);
-        window.setTimeout(showFirst,9500);
-        window.setTimeout(function(){if(dismissed)return;typing.hidden=false;},15000);
-        window.setTimeout(showSecond,17500);
-      }
-    })();
-  </script>
+  <a class="wa-float" id="waFloat" href="https://wa.me/6281391939099?text=Halo%20Eza%2C%20saya%20ingin%20bertanya%20tentang%20EROJAN." target="_blank" rel="noopener noreferrer" aria-label="Tanya Eza lewat WhatsApp"><svg class="icon" aria-hidden="true"><use href="assets/erojan-icons.svg#chat-phone"></use></svg><span class="sr-only">Tanya Eza</span></a>
 </body>
 </html>

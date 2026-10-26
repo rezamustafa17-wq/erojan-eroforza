@@ -1,0 +1,14 @@
+
+# Rahasia lokal
+.env
+.env.*
+!.env.example
+
+# Hasil kerja dan referensi pribadi tetap lokal
+dist/
+exports/
+references/
+.local-state/
+.DS_Store
+__pycache__/
+*.pyc

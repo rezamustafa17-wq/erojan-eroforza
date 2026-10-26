@@ -1,0 +1,45 @@
+{
+  "collected_date": "2026-10-26",
+  "files": [
+    {
+      "file": "references/design/Bold EROJAN Herbal Website Mockup.png",
+      "bytes": 2039566,
+      "sha256": "8c2537ed35617c1ed607e05e56f9d70548de22f5fc74c30f30a1ddc29baf4a48"
+    },
+    {
+      "file": "references/design/IMG 1662 iPhone.JPG",
+      "bytes": 2333781,
+      "sha256": "f2dd198f3c5f227ae11d734a8944a92e849c92fe842d615a31dc1b7390b63449"
+    },
+    {
+      "file": "references/design/WhatsApp Image 2026-10-24 at 13.06.12.jpeg",
+      "bytes": 1352225,
+      "sha256": "c38f85a9c4e86d21dfd2072bb092e4dc0dd77707432808e3941d6cfe35e04f90"
+    },
+    {
+      "file": "references/legacy-landing-page/PANDUAN.txt",
+      "bytes": 406,
+      "sha256": "abff9eb4a08f2c78c80eccf5fb214fb91e6eed0a758342f2587efe6c17388b93"
+    },
+    {
+      "file": "references/legacy-landing-page/index.html",
+      "bytes": 128912,
+      "sha256": "84685dc590b0660fe968d54ce7773c40663fb4021e7da2c07ee6eae73a91fd26"
+    },
+    {
+      "file": "references/media/erojan-reference-2026-10-24.mp4",
+      "bytes": 5297391,
+      "sha256": "15a62422a78f9eca3bd9a1ef13dde1e64d0b30f721cbd405d067e886cc7c80bf"
+    },
+    {
+      "file": "references/previous-session/rancangan-kampanye-erojan.md",
+      "bytes": 3645,
+      "sha256": "ea8491ab19bbf08e291d031dd91d5364ee2bc71440499000802af981dc295acc"
+    },
+    {
+      "file": "references/previous-session/validasi-eroforza-25-oktober-2026.md",
+      "bytes": 3597,
+      "sha256": "3ec015d8f4bd72f83be1bd245cb49046fabcdf311ebf27bb1d8f57b056fd2420"
+    }
+  ]
+}
