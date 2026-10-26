@@ -1,15 +1,15 @@
 {
-  "status": "LOCAL_DRAFT_NOT_CREATED",
+  "status": "LOCAL_IMPORT_PREPARED_NOT_CREATED",
   "customerId": "9733063009",
-  "campaignName": "EROJAN | Search | Brand | Indonesia",
+  "campaignName": "EROJAN Search Brand Indonesia 2026-10-27",
   "proposedCampaignStatus": "PAUSED",
-  "network": "GOOGLE_SEARCH",
+  "network": "GOOGLE_SEARCH_ONLY",
   "location": "Indonesia",
   "language": "Indonesian",
   "finalUrl": "https://eroforza.com/",
-  "dailyBudgetIdr": null,
-  "budgetStatus": "REQUIRES_OWNER_SELECTION",
-  "biddingStrategy": null,
+  "dailyBudgetIdr": 100000,
+  "budgetStatus": "OWNER_APPROVED_2026_10_27",
+  "biddingStrategy": "MAXIMIZE_CLICKS",
   "adGroup": "EROJAN Brand",
   "keywords": [
     {
@@ -41,8 +41,49 @@
   "blocker": "Google Ads write tools are restricted by the connected service. No campaign mutation attempted through alternate routes.",
   "launchPrerequisites": [
     "Policy review of actual product and label",
-    "Budget and bidding selection",
     "Measurement verified",
-    "No invented price, stock, credentials or product claims"
+    "No invented price, stock, credentials or product claims",
+    "Review proposed Maximize clicks and remaining Editor settings",
+    "Review proposed Maximize clicks and remaining Editor settings"
+  ],
+  "previousDraftCampaignName": "EROJAN | Search | Brand | Indonesia",
+  "budgetType": "AVERAGE_DAILY",
+  "biddingStatus": "PROPOSED_FOR_IMPORT_REVIEW",
+  "locationId": "2360",
+  "languageCode": "id",
+  "importFile": "exports/erojan-google-ads-2026-10-27/EROJAN-IMPORT.csv",
+  "adAssets": {
+    "headlines": [
+      "EROJAN by Wellous",
+      "Informasi Produk EROJAN",
+      "Kenali Komposisi EROJAN",
+      "EROJAN Kemasan 60 Kapsul",
+      "Cek Registrasi EROJAN",
+      "Tanya Eza Tentang EROJAN",
+      "Panduan Sesuai Label",
+      "Baca Sebelum Membeli",
+      "Informasi Kemasan Produk",
+      "Cek Nomor Izin Edar",
+      "Tanya Produk Lewat WhatsApp",
+      "Konsultasi Informasi Produk",
+      "Kenali Enam Bahan Botani",
+      "Periksa Label dan Kemasan",
+      "Jawaban Tentang Produk"
+    ],
+    "descriptions": [
+      "Kenali komposisi dan informasi EROJAN. Periksa registrasi produk sebelum membeli.",
+      "Lihat informasi kemasan 60 kapsul dan petunjuk penggunaan sesuai label produk.",
+      "Tanyakan informasi EROJAN kepada Eza lewat WhatsApp sebelum memutuskan membeli.",
+      "Konsultasi informasi produk gratis lewat WhatsApp. Pelajari EROJAN sebelum membeli."
+    ]
+  },
+  "remainingEditorReview": [
+    "Import into customer 9733063009 only",
+    "Campaign name must not match a campaign already present",
+    "New standalone budget, not a shared DVN budget",
+    "Presence targeting in Indonesia",
+    "Review campaign-specific conversion goals without changing account defaults",
+    "EU political ads: No, if requested",
+    "Review Google Ads policy and importer warnings before posting"
   ]
 }

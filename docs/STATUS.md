@@ -1,6 +1,19 @@
 # Status proyek EROJAN
 
-Diperbarui: 26 Oktober 2026, WIB.
+Diperbarui: 27 Oktober 2026, WIB.
+
+## Kampanye EROJAN: paket impor Rp100.000 per hari
+
+- Pemilik menetapkan anggaran rata-rata harian Rp100.000 pada 27 Oktober 2026.
+- Paket Google Ads Editor tersedia di exports/erojan-google-ads-100000-2026-10-27.zip. Salinan sumber CSV dan hasil validasi disimpan di campaigns/erojan-search-2026-10-27/.
+- Nama kampanye baru: EROJAN Search Brand Indonesia 2026-10-27, domain eroforza.com, akun tujuan 973-306-3009, status awal Paused.
+- Jaringan Google Search, lokasi Indonesia (2360), bahasa id, empat keyword Exact, satu RSA dengan 15 judul dan 4 deskripsi. Bidding Maximize clicks merupakan usulan untuk tinjauan impor.
+- Validasi lokal dan pembacaan ulang CSV lulus. Impor langsung Google Ads Editor dan posting akun belum dilakukan. Tidak ada kampanye, budget, konversi, atau pengaturan DVN diubah.
+- Izin aplikasi Composio telah diperiksa dan Allow all actions; fungsi mutasi tetap dibatasi layanan. Pembuatan paket ini hanya mengerjakan file lokal.
+- Panduan: [IMPOR-KAMPANYE-EROJAN-2026-10-27.md](IMPOR-KAMPANYE-EROJAN-2026-10-27.md), termasuk pemeriksaan lokasi Presence, budget tersendiri, sasaran konversi, serta daftar perubahan sebelum Post.
+- Rp100.000 adalah rata-rata harian: untuk kebanyakan kampanye Google dapat membelanjakan Rp200.000 pada hari tertentu, dengan batas bulanan Rp3.040.000 bila budget tetap sepanjang bulan. Kampanye tetap dijeda saat diposting untuk ditinjau.
+
+
 
 ## Google Ads: jalur Google Ads Scripts
 

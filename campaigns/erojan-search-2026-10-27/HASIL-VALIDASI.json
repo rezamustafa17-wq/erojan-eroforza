@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-27",
+  "status": "LOCAL_VALIDATION_PASSED_EDITOR_IMPORT_NOT_RUN",
+  "customerId": "9733063009",
+  "campaignName": "EROJAN Search Brand Indonesia 2026-10-27",
+  "currency": "IDR",
+  "averageDailyBudget": 100000,
+  "campaignStatus": "Paused",
+  "counts": {
+    "campaign": 1,
+    "location": 1,
+    "adGroup": 1,
+    "exactKeywords": 4,
+    "responsiveSearchAds": 1,
+    "headlines": 15,
+    "descriptions": 4
+  },
+  "csv": {
+    "encoding": "UTF-16LE BOM",
+    "delimiter": ",",
+    "columns": 35,
+    "dataRows": 8
+  },
+  "headlineLengths": [
+    17,
+    23,
+    23,
+    24,
+    21,
+    24,
+    20,
+    20,
+    24,
+    19,
+    27,
+    27,
+    24,
+    25,
+    22
+  ],
+  "descriptionLengths": [
+    81,
+    78,
+    79,
+    83
+  ],
+  "remoteWritesPerformed": 0,
+  "existingCampaignRows": 0,
+  "importTestedInGoogleAdsEditor": false,
+  "manualReviewRequired": [
+    "Import into customer 9733063009 only",
+    "Campaign name must not match a campaign already present",
+    "New standalone budget, not a shared DVN budget",
+    "Presence targeting in Indonesia",
+    "Review campaign-specific conversion goals without changing account defaults",
+    "EU political ads: No, if requested",
+    "Review Google Ads policy and importer warnings before posting"
+  ],
+  "sha256": "aba0fa4008489e28d57e65ab6da2000504b0280744b2794ba5f789b6f16e7aae",
+  "independentCsvReadback": "PASSED"
+}
