@@ -2,6 +2,38 @@
 
 Diperbarui: 26 Oktober 2026, WIB.
 
+## Google Ads: jalur Google Ads Scripts
+
+- Pengguna memilih tidak melanjutkan Google Cloud/OAuth client pribadi dan meminta konfigurasi melalui skrip Google.
+- Paket lokal tersedia di `integrations/google-ads-scripts/`: Code.js, README, contoh konfigurasi dan pengujian offline.
+- Runtime yang digunakan adalah Google Ads Scripts di akun Ads, bukan editor Apps Script biasa. Authorize bawaan Google tetap diperlukan; tidak memerlukan token dari Composio.
+- Paket mencakup builder Search campaign PAUSED, update campaign/budget, create/update konversi, goals/custom goals, generic mutate dan laporan Sheets. Mode default PLAN/AUDIT.
+- Pengujian lokal dengan mock lulus; pemasangan, Authorize, Preview dan eksekusi di akun pengguna belum dilakukan. Belum ada perubahan iklan/konversi/budget.
+- Riset dan berkas REST/OAuth sebelumnya dipertahankan, tetapi tidak diaktifkan. R2 tetap ditunda.
+
+## Status terbaru: peningkatan SEO dan pengukuran
+
+Bagian ini menggantikan status implementasi lama di bawah untuk pekerjaan yang sama. Bagian-bagian lama dipertahankan sebagai riwayat.
+
+- Versi produk baru, empat halaman informasi, robots dan sitemap sudah dipublikasikan. Commit situs: `7122228de257cb18d0bfbc0edbbdcb22b2c09bba`.
+- Search Console URL-prefix https://eroforza.com/ sudah diverifikasi lewat tag HTML. Sitemap berstatus **Sukses**, 5 halaman ditemukan.
+- Beranda sebelumnya sudah diindeks dengan masalah data Product lama. Uji langsung versi baru: tersedia untuk Google dan dapat diindeks. Pengindeksan ulang berhasil diminta.
+- Google Analytics dibuat setelah persetujuan eksplisit pemilik pada persyaratan layanan; properti 560814305, aliran 16206738784, ID G-RWTJBMGCLL. Commit pengukuran: `5a135d41345ba84e5536748963a0b2dfc1bea62e`.
+- Pengukuran menunggu izin pengunjung. Pengujian browser membuktikan 0 script Google sebelum izin dan satu tag yang benar setelah izin. Enhanced measurement dimatikan. Realtime menerima 1 page_view dan 1 whatsapp_click dari pengujian, beserta 1 pengguna aktif. Ini data uji.
+- Dua pesan bertahap, penutupan otomatis, ikon chat badge 2, pembukaan dua pesan lanjutan, serta label WhatsApp permanen tetap ada. Pesan lanjutan menggunakan informasi produk tanpa janji mengatasi keluhan.
+- Pemilik tidak ingin mengisi harga/stock/syarat rinci. Halaman menyarankan konfirmasi tertulis lewat Eza; data tidak dikarang.
+- Pembuatan kampanye Google Ads belum dapat dilakukan karena alat tulis dibatasi layanan. Rancangan lokal PAUSED tersedia di config/ads-plan.json. Tidak ada anggaran atau kampanye DVN diubah.
+- Semua data sumber dan video lokal tetap disimpan; R2 masih ditunda. Video tidak disertakan dalam publikasi peningkatan ini.
+- Laporan lengkap: [HASIL-PENINGKATAN-EROJAN-2026-10-26.md](HASIL-PENINGKATAN-EROJAN-2026-10-26.md). Pengukuran: [PENGUKURAN-EROJAN.md](PENGUKURAN-EROJAN.md).
+
+
+## Keputusan terbaru: R2 ditunda
+
+- Pengguna meminta pekerjaan R2 ditahan pada 26 Oktober 2026.
+- Menunggu pemilik melakukan aktivasi/checkout R2 melalui dashboard dengan kartu kredit.
+- Pemeriksaan API langsung terakhir: token aktif dan akun sesuai; daftar langganan akun kosong; R2 mengembalikan HTTP 403 kode `10042` dengan permintaan aktivasi melalui dashboard.
+- Setelah pemilik menyelesaikan aktivasi, uji ulang akses bucket sebelum melanjutkan unggah video dan konfigurasi media publik.
+
 ## Sudah selesai
 
 - Kode dan riwayat Git dipulihkan dari `rezamustafa17-wq/erojan-eroforza`; commit dasar `c299d62`.

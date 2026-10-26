@@ -4,6 +4,12 @@ Folder kerja lokal untuk website informasi EROJAN milik Eza. Kode dan riwayat Gi
 
 Website berupa HTML, CSS, dan JavaScript statis. Tidak memerlukan pemasangan paket tambahan. Alamat yang tercatat di `CNAME`: https://eroforza.com/. Kontak pada versi terakhir GitHub: **0813-9193-9099**.
 
+## Hasil terbaru
+
+Versi peningkatan SEO sudah tersedia di https://eroforza.com/. Lima halaman publik meliputi informasi produk, Tentang Eza, pemesanan, privasi dan ketentuan. Search Console telah terverifikasi dengan sitemap lima URL; GA4 memakai pilihan izin pengunjung.
+
+Baca [laporan lengkap peningkatan](docs/HASIL-PENINGKATAN-EROJAN-2026-10-26.md), [pengukuran](docs/PENGUKURAN-EROJAN.md), dan [status proyek](docs/STATUS.md) sebelum melanjutkan. R2 tetap ditunda; video tersimpan sebagai sumber lokal dan tidak ikut paket publik terbaru.
+
 ## Mulai bekerja
 
 Jalankan dari folder ini:
@@ -41,7 +47,7 @@ Buka http://127.0.0.1:4173/. Hentikan pratinjau dengan Ctrl+C. Server hanya meny
 python3 scripts/project.py check
 python3 scripts/project.py build
 git status
-git add index.html assets config scripts docs README.md .env.example .gitignore robots.txt sitemap.xml
+git add index.html tentang.html pemesanan.html kebijakan-privasi.html ketentuan.html assets config scripts docs README.md robots.txt sitemap.xml
 git diff --cached --stat
 git commit -m "Restore local EROJAN project and prepare product video"
 ```

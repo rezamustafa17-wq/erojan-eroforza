@@ -16,8 +16,9 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / 'dist'
-FILES = ['index.html', 'favicon.svg', 'CNAME', '.nojekyll', 'robots.txt', 'sitemap.xml']
-DIRECTORIES = ['assets', 'config']
+PAGES = ['index.html', 'tentang.html', 'pemesanan.html', 'kebijakan-privasi.html', 'ketentuan.html']
+FILES = PAGES + ['favicon.svg', 'CNAME', '.nojekyll', 'robots.txt', 'sitemap.xml']
+DIRECTORIES = ['assets']
 
 
 def media():
@@ -66,38 +67,51 @@ class Page(HTMLParser):
 
 def check():
     data = media()
-    page = Page()
-    text = (ROOT / 'index.html').read_text()
-    page.feed(text)
-    errors = page.errors
-    if page.h1 != 1: errors.append('Halaman harus memiliki satu H1')
-    for ref in page.refs:
-        u = urlsplit(ref)
-        if u.scheme or u.netloc: continue
-        if not u.path:
-            if u.fragment and u.fragment not in page.ids: errors.append('Anchor tidak ditemukan: ' + ref)
+    errors, pages = [], {}
+    for name in PAGES:
+        if not (ROOT / name).is_file():
+            errors.append('Halaman tidak ditemukan: ' + name)
             continue
-        p = (ROOT / unquote(u.path).lstrip('/')).resolve()
-        if ROOT not in p.parents or not p.is_file(): errors.append('Aset tidak ditemukan: ' + ref)
-        elif u.fragment and p.suffix == '.svg':
-            ids = {x.attrib.get('id') for x in ET.parse(p).iter()}
-            if u.fragment not in ids: errors.append('Ikon tidak ditemukan: ' + ref)
+        page = Page()
+        text = (ROOT / name).read_text()
+        page.feed(text)
+        pages[name] = page
+        errors.extend(name + ': ' + e for e in page.errors)
+        if page.h1 != 1: errors.append(name + ': harus memiliki satu H1')
+        canonical = 'https://eroforza.com/' + ('' if name == 'index.html' else name)
+        if not re.search(r'rel="canonical"\s+href="' + re.escape(canonical) + r'"', text):
+            errors.append(name + ': canonical tidak sesuai')
+        if re.search(r'<meta[^>]+content="[^"]*noindex', text): errors.append(name + ': tidak boleh noindex')
+        if set(re.findall(r'wa\.me/(\d+)', text)) != {'6281391939099'}:
+            errors.append(name + ': nomor WhatsApp tidak sesuai')
+        for part in page.json_parts: json.loads(part)
+    for name, page in pages.items():
+        for ref in page.refs:
+            u = urlsplit(ref)
+            if u.scheme or u.netloc: continue
+            p = (ROOT / (unquote(u.path).lstrip('/') or name)).resolve()
+            if ROOT not in p.parents or not p.is_file():
+                errors.append(name + ': aset tidak ditemukan: ' + ref)
+            elif u.fragment:
+                if p.suffix == '.svg': ids = {x.attrib.get('id') for x in ET.parse(p).iter()}
+                elif p.name in pages: ids = pages[p.name].ids
+                else: continue
+                if u.fragment not in ids: errors.append(name + ': anchor tidak ditemukan: ' + ref)
     for p in (ROOT / 'assets').rglob('*.css'):
         for ref in re.findall(r'url\([\'"]?([^\)\'\"]+)', p.read_text()):
             if urlsplit(ref).scheme or ref.startswith('#'): continue
             if not (p.parent / unquote(ref)).is_file(): errors.append('Aset CSS tidak ditemukan: ' + ref)
-    for part in page.json_parts: json.loads(part)
-    ET.parse(ROOT / 'sitemap.xml')
+    sitemap = ET.parse(ROOT / 'sitemap.xml')
+    locations = {x.text for x in sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')}
+    expected = {'https://eroforza.com/' + ('' if p == 'index.html' else p) for p in PAGES}
+    if locations != expected: errors.append('Sitemap tidak sesuai halaman publik')
     for name in FILES:
         if not (ROOT / name).is_file(): errors.append('Berkas wajib tidak ditemukan: ' + name)
-    if 'https://eroforza.com/' not in text: errors.append('Canonical domain tidak ditemukan')
-    phones = set(re.findall(r'wa\.me/(\d+)', text))
-    if phones != {'6281391939099'}: errors.append('Nomor WhatsApp berbeda dari versi GitHub terakhir')
     video = ROOT / data['localVideo']
     with video.open('rb') as f:
         if b'ftyp' not in f.read(64): errors.append('Video lokal bukan kontainer MP4 yang dikenal')
     if errors: raise ValueError('\n'.join(errors))
-    print('LULUS: struktur HTML, anchor, aset, ikon, JSON-LD, sitemap, WhatsApp, dan berkas video.')
+    print('LULUS: lima halaman, canonical, anchor, aset, ikon, JSON-LD, sitemap, WhatsApp, dan arsip video.')
 
 
 def build():
@@ -106,7 +120,16 @@ def build():
     if DIST.exists(): shutil.rmtree(DIST)
     DIST.mkdir()
     for name in FILES: shutil.copy2(ROOT / name, DIST / name)
-    for name in DIRECTORIES: shutil.copytree(ROOT / name, DIST / name)
+    for name in DIRECTORIES:
+        shutil.copytree(ROOT / name, DIST / name, ignore=shutil.ignore_patterns('video', '*.ttf', 'experience.js', 'experience.css'))
+    # Validate that the deployable package resolves the same public references.
+    for name in PAGES:
+        page = Page(); page.feed((DIST / name).read_text())
+        for ref in page.refs:
+            u = urlsplit(ref)
+            if not u.scheme and not u.netloc and u.path:
+                if not (DIST / unquote(u.path).lstrip('/')).is_file():
+                    raise ValueError('Referensi tidak masuk paket: ' + ref)
     print('Paket website siap di dist/. Dokumen, .env, .git, dan references tidak disalin.')
 
 

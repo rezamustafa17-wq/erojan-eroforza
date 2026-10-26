@@ -1,0 +1,48 @@
+{
+  "status": "LOCAL_DRAFT_NOT_CREATED",
+  "customerId": "9733063009",
+  "campaignName": "EROJAN | Search | Brand | Indonesia",
+  "proposedCampaignStatus": "PAUSED",
+  "network": "GOOGLE_SEARCH",
+  "location": "Indonesia",
+  "language": "Indonesian",
+  "finalUrl": "https://eroforza.com/",
+  "dailyBudgetIdr": null,
+  "budgetStatus": "REQUIRES_OWNER_SELECTION",
+  "biddingStrategy": null,
+  "adGroup": "EROJAN Brand",
+  "keywords": [
+    {
+      "text": "erojan",
+      "matchType": "EXACT"
+    },
+    {
+      "text": "erojan wellous",
+      "matchType": "EXACT"
+    },
+    {
+      "text": "erojan by wellous",
+      "matchType": "EXACT"
+    },
+    {
+      "text": "erojan bpom",
+      "matchType": "EXACT"
+    }
+  ],
+  "excludedUntilOfferDataAvailable": [
+    "harga erojan"
+  ],
+  "adAssetsSource": "docs/EROJAN-ADS-KEYWORD-PLAN-2026-10-26.md",
+  "measurement": {
+    "initialEvent": "whatsapp_click",
+    "meaning": "Click to WhatsApp, not a qualified lead or sale",
+    "googleAdsConversionAction": "NOT_CREATED"
+  },
+  "blocker": "Google Ads write tools are restricted by the connected service. No campaign mutation attempted through alternate routes.",
+  "launchPrerequisites": [
+    "Policy review of actual product and label",
+    "Budget and bidding selection",
+    "Measurement verified",
+    "No invented price, stock, credentials or product claims"
+  ]
+}
