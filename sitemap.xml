@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://eroforza.com/</loc><lastmod>2026-10-26</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url><loc>https://eroforza.com/</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://eroforza.com/tentang.html</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://eroforza.com/pemesanan.html</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://eroforza.com/kebijakan-privasi.html</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://eroforza.com/ketentuan.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url>
+    <loc>https://eroforza.com/video.html</loc><lastmod>2026-10-27</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://eroforza.com/assets/video/erojan-poster.jpg</video:thumbnail_loc>
+      <video:title>Video produk EROJAN by Wellous</video:title>
+      <video:description>Tonton video produk EROJAN by Wellous yang tersedia di Eroforza.</video:description>
+      <video:content_loc>https://eroforza.com/assets/video/erojan-product.mp4</video:content_loc>
+      <video:duration>52</video:duration>
+    </video:video>
+  </url>
 </urlset>
