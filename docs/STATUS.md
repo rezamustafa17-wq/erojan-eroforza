@@ -82,3 +82,15 @@ Permintaan terbaru mengoreksi pemisahan tampilan: animasi percakapan harus tetap
 - Commit publikasi revisi notifikasi: `2b8e4aa799eb22fcc3fc1c83263d40aabc05fe3a`.
 - Verifikasi situs aktif ponsel (460 px) berhasil: dua pesan awal tercatat sudah tampil, panel otomatis tertutup, ikon dan badge merah 2 terlihat; klik ikon membuka empat pesan sekaligus dengan dua pesan tambahan, badge dibersihkan, CTA tersedia, dan tidak ada luapan horizontal.
 - Bukti situs aktif: `.local-state/qa/unread-chat-live-badge.png` dan `.local-state/qa/unread-chat-live-open.png`.
+
+## Audit keyword EROJAN: Google Ads dan SEO
+
+- Audit 26 Oktober 2026 membaca akun tujuan Google Ads, Keyword Planner, situs publik dan sumber lokal; situs serta kampanye tidak diubah.
+- Akun 973-306-3009 hanya mengembalikan kampanye DVN yang tidak dihapus. Keyword EROJAN tidak ditemukan, sehingga Quality Score EROJAN belum tersedia pada akun tersebut.
+- Keyword Planner Indonesia/Google Search mengembalikan estimasi rata-rata: erojan 2.400 pencarian/bulan, harga erojan 320, erojan wellous 260, erojan bpom 10. Ini estimasi historis, bukan traffic atau CPC yang dijamin.
+- Pemilik mengonfirmasi Search Console belum didaftarkan. Status indeks dan ranking organik belum diverifikasi.
+- Situs publik masih memberi 404 pada robots.txt dan sitemap.xml yang sudah ada secara lokal. Tidak ditemukan tag Google maupun tautan privasi/ketentuan pada sumber halaman yang diperiksa.
+- Teks chat tentang membantu mengatasi keluhan dan urusan ranjang ditandai untuk peninjauan klaim/kategori iklan. Ini penilaian risiko, bukan keputusan penolakan Google.
+- PageSpeed mobile memberi HTTP 429 akibat kuota; skor performa dan Core Web Vitals belum diukur.
+- Laporan: `AUDIT-GOOGLE-ADS-SEO-EROJAN-2026-10-26.md`. Rancangan keyword serta 15 judul dan 4 deskripsi: `EROJAN-ADS-KEYWORD-PLAN-2026-10-26.md`.
+- Bukti pembacaan tersimpan lokal di `.local-state/audit-2026-10-26/` dan tidak masuk Git.
