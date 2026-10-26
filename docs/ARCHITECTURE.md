@@ -2,7 +2,7 @@
 
 ## Website
 
-`index.html` merupakan halaman utama. Gaya lama tetap dipertahankan. `assets/ui/supporting-assets.css` menyediakan gaya pendukung; `assets/experience.css` memuat gaya video dan floating chat baru. `assets/experience.js` mengatur pesan singkat dan pemilihan sumber video.
+`index.html` merupakan halaman utama. Gaya lama tetap dipertahankan. `assets/ui/supporting-assets.css` menyediakan gaya pendukung; `assets/experience.css` dan `assets/experience.js` mengatur video. `assets/floating-chat.css` dan `assets/floating-chat.js` mengatur floating WhatsApp secara terpisah.
 
 Video berada di `assets/video/erojan-product.mp4`. Pemutaran dimulai oleh pengunjung, menggunakan kontrol bawaan browser dan `playsinline`. Video tidak otomatis diputar dan menggunakan `preload="none"`. Poster memakai gambar produk yang sudah ada.
 
@@ -14,7 +14,7 @@ Video berada di `assets/video/erojan-product.mp4`. Pemutaran dimulai oleh pengun
 
 ## Floating chat
 
-Pesan singkat muncul 3 detik setelah halaman siap, lalu hilang 6 detik kemudian. Mengetuk halaman atau pesan, menekan X, mengeklik ikon WhatsApp, atau menekan Escape menutupnya. Pesan tidak muncul kembali selama halaman tersebut belum dimuat ulang. Ikon WhatsApp tetap mengarah langsung ke kontak Eza. Animasi memantul dinonaktifkan bila perangkat meminta reduced motion.
+Pesan singkat muncul 2,5 detik setelah halaman siap, lalu hilang 6 detik kemudian. Pesan menampilkan “Konsultan Erojan Online” dan “Siap Balas Cepat” dalam kapsul 278 × 64 piksel pada desktop. Mengetuk halaman atau pesan, menekan X, mengeklik ikon WhatsApp, atau menekan Escape menutupnya. Pesan tidak muncul kembali selama halaman tersebut belum dimuat ulang. Ikon WhatsApp tetap mengarah langsung ke kontak Eza. Logo WhatsApp memakai SVG dari Simple Icons. Tiga cincin radar hijau menjalankan masing-masing tiga putaran setelah pesan hilang, lalu berhenti. Ikon tetap memantul berkala. Semua animasi dimatikan bila perangkat meminta reduced motion.
 
 Ini sapaan lokal, bukan sistem percakapan langsung. Tidak ada backend chat atau pengiriman data formulir.
 

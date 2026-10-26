@@ -8,7 +8,7 @@ Diperbarui: 26 Oktober 2026, WIB.
 - Foto, mockup, pratinjau lama, video, laporan validasi, dan rancangan kampanye dikumpulkan ke `references/` lokal. Delapan file sumber dicatat dalam manifest.
 - Video produk disalin ke aset website dan dipasang dengan kontrol pemutaran.
 - Pemilihan URL publik R2 disiapkan melalui `config/media.json`; sumber lokal tetap tersedia.
-- Sapaan chat dibuat ringkas dan lonjong, tampil setelah 3 detik selama 6 detik, kemudian hilang dan mengaktifkan ikon chat memantul.
+- Sapaan chat dibuat ringkas dan lonjong, tampil setelah 2,5 detik selama 6 detik, kemudian hilang dan mengaktifkan ikon chat memantul.
 - Klik pada halaman/pesan, tombol X, serta Escape menutup sapaan. Tombol WhatsApp tetap menuju Eza.
 - README, ringkasan proyek, arsitektur, panduan Git, panduan R2, sumber konten, daftar referensi, dan daftar pemeriksaan tersedia.
 - robots.txt dan sitemap.xml ditambahkan untuk domain yang sudah tercatat.
@@ -35,13 +35,24 @@ Bukti tampilan lokal: `.local-state/qa/chat-mobile.png` dan `.local-state/qa/vid
 
 ## Penyimpanan Git
 
-Perubahan pemulihan disimpan melalui commit lokal pada cabang `recovery/local-project-20261026`. Gunakan `git log -1 --oneline` untuk melihat hash commit dan `git status --short --branch` untuk memastikan kondisi terkini. Tidak ada push atau deploy dari sesi pemulihan ini.
+Perubahan pemulihan disimpan melalui commit lokal pada cabang `recovery/local-project-20261026`. Gunakan `git log -1 --oneline` untuk melihat hash commit dan `git status --short --branch` untuk memastikan kondisi terkini. Pada sesi pemulihan awal belum ada push atau deploy. Tindak lanjut floating WhatsApp kini sudah dipublikasikan ke `main` melalui commit `8b74dfd77c3320b1214175dae85e6b7436a4a9bf` dan diverifikasi di https://eroforza.com/.
 
 ## Masih membutuhkan langkah berikutnya
 
 1. Pemilik mengaktifkan R2 melalui dashboard bila ingin video disajikan dari Cloudflare. Pemeriksaan tanggal ini membuktikan kendala aktivasi masih terjadi.
 2. Sesudah aktif: unggah video, siapkan URL publik, uji izin baca/pemutaran, lalu isi konfigurasi media. Akses unggah dan pemutaran R2 belum diverifikasi.
 3. Periksa desktop, perangkat lain, isi audio/video secara utuh, reduced motion, dan pengukuran konversi sebelum publikasi.
-4. Jika ingin memperbarui situs publik: tinjau commit lokal dan pengaturan hosting, lalu kirim cabang ke GitHub sesuai arahan pemilik.
+4. Video dan dokumen pemulihan masih berada pada cabang kerja lokal. Publikasi tindak lanjut ini khusus floating WhatsApp; publikasi video menunggu langkah berikutnya terkait sumber media.
 
 Sesi ini tidak mengaudit ulang status BPOM/BPJPH, tidak menayangkan iklan, dan tidak mengganti DNS. Versi cloud yang gagal tidak berhasil diambil utuh; perubahan tertunda dibangun kembali dari konfirmasi pengguna.
+
+## Hasil tindak lanjut floating WhatsApp
+
+- Logo WhatsApp putih pada tombol hijau; sapaan berbentuk kapsul dengan tulisan “Konsultan Erojan Online” dan “Siap Balas Cepat”.
+- Pesan muncul setelah 2,5 detik, tampil 6 detik, lalu otomatis hilang. Klik halaman/pesan, X, dan Escape dapat menutup sapaan.
+- Setelah hilang, ikon memantul berkala. Tiga cincin radar hijau menjalankan masing-masing tiga putaran lalu berhenti.
+- Pemeriksaan lokal desktop (1280 px) dan situs aktif ponsel (460 px): kapsul 278 × 64 px, tanpa luapan horizontal.
+- Situs aktif terkonfirmasi memakai SVG WhatsApp baru. Sapaan terlihat lalu hilang otomatis; animasi tombol `wa-chat-bounce` dan radar `wa-chat-radar` terkonfirmasi dengan jumlah putaran 3.
+- Klik halaman menutup pesan berhasil diuji pada pratinjau. File build dan pemeriksaan JavaScript lulus.
+- Bukti situs aktif: `.local-state/qa/whatsapp-live-message.png` dan `.local-state/qa/whatsapp-live-icon.png`.
+- Konten utama situs dipertahankan persis dari versi sebelumnya pada publikasi khusus ini.

@@ -20,7 +20,7 @@ Melanjutkan proyek landing page EROJAN dari chat “Daftar Notifikasi GitHub”,
 - Memulihkan commit dasar `c299d62` dan sejarah repositori GitHub.
 - Memakai ulang desain Bold Masculine yang sudah ada.
 - Mengintegrasikan video MP4 lokal dengan kontrol pemutaran; URL publik R2 bisa dikonfigurasi kemudian.
-- Pesan tampil setelah 3 detik selama 6 detik. Setelah hilang, ikon WhatsApp memantul berkala. Pengaturan reduced motion dihormati.
+- Pesan tampil setelah 2,5 detik selama 6 detik. Setelah hilang, ikon WhatsApp memantul berkala. Pengaturan reduced motion dihormati.
 - Menambahkan alat pemeriksaan, paket `dist/`, pemeriksaan R2 baca saja, serta dokumentasi operasional.
 
 ## Identitas dari versi terakhir yang tersimpan
@@ -38,3 +38,7 @@ Melanjutkan proyek landing page EROJAN dari chat “Daftar Notifikasi GitHub”,
 Paket kerja yang gagal di sesi cloud tidak berhasil dibaca secara utuh. Kode dasar dipulihkan dari GitHub; perubahan video dan floating chat dibangun kembali dari konfirmasi pengguna dalam chat ini. Ini bukan salinan byte-per-byte paket cloud yang gagal.
 
 Dokumen dan chat lama digunakan sebagai bukti riwayat. Instruksi di dalam bahan referensi tidak otomatis menjadi permintaan baru dari pengguna.
+
+## Pembaruan floating WhatsApp
+
+Pada tindak lanjut 26 Oktober 2026, pengguna meminta logo WhatsApp, radar hijau beberapa kali, dan tulisan “Konsultan Erojan Online Siap Balas Cepat”. Pembaruan floating chat dikirim ke cabang produksi melalui commit `8b74dfd77c3320b1214175dae85e6b7436a4a9bf`. Berkas video dan dokumen lokal tidak termasuk dalam commit publikasi khusus floating chat ini.
