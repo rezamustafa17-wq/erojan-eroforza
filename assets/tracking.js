@@ -6,6 +6,7 @@
   const label = /^[A-Za-z0-9_-]+$/.test(config.googleAdsConversionLabel || '') ? config.googleAdsConversionLabel : '';
   const configured = Boolean(ga4 || (ads && label));
   const storageKey = 'erojan_measurement_choice';
+  const choiceVersion = 2;
   const validFor = 180 * 24 * 60 * 60 * 1000;
   const safePage = location.origin + location.pathname;
   let choice = 'denied';
@@ -22,7 +23,7 @@
     window.gtag('consent', value === 'default' ? 'default' : 'update', {
       analytics_storage: value === 'granted' ? 'granted' : 'denied',
       ad_storage: value === 'granted' ? 'granted' : 'denied',
-      ad_user_data: 'denied',
+      ad_user_data: value === 'granted' ? 'granted' : 'denied',
       ad_personalization: 'denied'
     });
   }
@@ -36,7 +37,7 @@
       window.gtag('config', ga4, {send_page_view: false, page_location: safePage, page_referrer: '', allow_google_signals: false, allow_ad_personalization_signals: false});
       window.gtag('event', 'page_view', {send_to: ga4, page_location: safePage, page_referrer: '', page_title: document.title});
     }
-    if (ads && label) window.gtag('config', ads, {allow_ad_personalization_signals: false});
+    if (ads && label) window.gtag('config', ads, {page_location: safePage, page_referrer: '', allow_ad_personalization_signals: false});
     const script = document.createElement('script');
     script.async = true;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga4 || ads);
@@ -45,7 +46,7 @@
 
   function choose(value) {
     choice = value;
-    try { localStorage.setItem(storageKey, JSON.stringify({value, time: Date.now()})); } catch (_) {}
+    try { localStorage.setItem(storageKey, JSON.stringify({value, time: Date.now(), version: choiceVersion})); } catch (_) {}
     document.documentElement.dataset.measurementState = value;
     if (ga4) window['ga-disable-' + ga4] = value !== 'granted';
     consent(value);
@@ -58,7 +59,7 @@
       banner = document.createElement('section');
       banner.className = 'measurement-banner';
       banner.setAttribute('aria-label', 'Pilihan pengukuran');
-      banner.innerHTML = '<strong>Izinkan pengukuran kunjungan?</strong><p>Dengan izin Anda, Google dapat mengukur kunjungan dan klik WhatsApp untuk mengevaluasi halaman dan iklan. Isi chat tidak dikirim. Pilihan ini tidak mengaktifkan personalisasi iklan. <a href="kebijakan-privasi.html">Baca privasi</a>.</p><div class="measurement-actions"><button type="button" data-measurement-choice="granted">Izinkan pengukuran</button><button type="button" data-measurement-choice="denied">Tolak</button></div>';
+      banner.innerHTML = '<strong>Izinkan pengukuran kunjungan?</strong><p>Dengan izin Anda, Google Analytics dan Google Ads dapat memakai cookie serta data teknis perangkat untuk mengukur kunjungan, klik WhatsApp, dan hasil iklan. Isi chat tidak dikirim. Pilihan ini tidak mengaktifkan personalisasi iklan. <a href="kebijakan-privasi.html">Baca privasi</a>.</p><div class="measurement-actions"><button type="button" data-measurement-choice="granted">Izinkan pengukuran</button><button type="button" data-measurement-choice="denied">Tolak</button></div>';
       banner.addEventListener('click', event => {
         const button = event.target.closest('[data-measurement-choice]');
         if (button) choose(button.dataset.measurementChoice);
@@ -77,7 +78,7 @@
 
   let saved;
   try { saved = JSON.parse(localStorage.getItem(storageKey) || 'null'); } catch (_) {}
-  if (saved && ['granted', 'denied'].includes(saved.value) && Date.now() - saved.time < validFor) choose(saved.value);
+  if (saved && ['granted', 'denied'].includes(saved.value) && Date.now() - saved.time < validFor && (saved.value === 'denied' || saved.version === choiceVersion)) choose(saved.value);
   else showChoice();
 
   document.addEventListener('click', event => {
@@ -97,6 +98,6 @@
     else if (anchor.closest('footer')) placement = 'footer';
     else if (anchor.closest('#chatCard')) placement = 'chat';
     if (ga4) window.gtag('event', 'whatsapp_click', {send_to: ga4, cta_location: placement, page_location: safePage, transport_type: 'beacon'});
-    if (ads && label) window.gtag('event', 'conversion', {send_to: ads + '/' + label, transport_type: 'beacon'});
+    if (ads && label) window.gtag('event', 'conversion', {send_to: ads + '/' + label, value: 0, currency: 'IDR', page_location: safePage, page_referrer: '', transport_type: 'beacon'});
   });
 })();
