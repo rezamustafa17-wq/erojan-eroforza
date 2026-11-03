@@ -1,9 +1,9 @@
 {
-  "localVideo": "assets/video/erojan-product.mp4",
+  "localVideo": "assets/video/erojan-tora-sudiro.mp4",
   "publicVideoUrl": "",
-  "poster": "assets/video/erojan-poster.jpg",
-  "name": "Video produk EROJAN by Wellous",
-  "description": "Ringkasan identitas dan komposisi EROJAN berdasarkan data BPOM, tanpa testimoni hasil.",
-  "uploadDate": "2026-11-01",
-  "duration": "PT52S"
+  "poster": "assets/video/erojan-tora-sudiro.jpg",
+  "name": "Video Tora Sudiro tentang EROJAN",
+  "description": "Video pengalaman pribadi Tora Sudiro mengenai EROJAN. Pengalaman dalam video bukan jaminan hasil yang sama.",
+  "uploadDate": "2026-10-27",
+  "duration": "PT52.034S"
 }
