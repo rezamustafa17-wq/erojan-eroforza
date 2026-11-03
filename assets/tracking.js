@@ -1,103 +1,66 @@
 (() => {
   'use strict';
-  const config = window.EROJAN_PUBLIC_CONFIG || {};
+  const config = window.EROJAN_PUBLIC_CONFIG || {}, consent = window.EROJANConsent;
   const ga4 = /^G-[A-Z0-9]+$/.test(config.ga4MeasurementId || '') ? config.ga4MeasurementId : '';
   const ads = /^AW-\d+$/.test(config.googleAdsConversionId || '') ? config.googleAdsConversionId : '';
   const label = /^[A-Za-z0-9_-]+$/.test(config.googleAdsConversionLabel || '') ? config.googleAdsConversionLabel : '';
-  const configured = Boolean(ga4 || (ads && label));
-  const storageKey = 'erojan_measurement_choice';
-  const choiceVersion = 2;
-  const validFor = 180 * 24 * 60 * 60 * 1000;
-  const safePage = location.origin + location.pathname;
-  let choice = 'denied';
-  let initialized = false;
-  let lastClick = 0;
-  let banner;
-
-  document.documentElement.dataset.measurementState = configured ? 'awaiting-consent' : 'unconfigured';
-  if (!configured) return;
-
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-  function consent(value) {
-    window.gtag('consent', value === 'default' ? 'default' : 'update', {
-      analytics_storage: value === 'granted' ? 'granted' : 'denied',
-      ad_storage: value === 'granted' ? 'granted' : 'denied',
-      ad_user_data: value === 'granted' ? 'granted' : 'denied',
-      ad_personalization: 'denied'
-    });
-  }
-  consent('default');
-
-  function initialize() {
-    if (initialized) return;
-    initialized = true;
-    window.gtag('js', new Date());
-    if (ga4) {
-      window.gtag('config', ga4, {send_page_view: false, page_location: safePage, page_referrer: '', allow_google_signals: false, allow_ad_personalization_signals: false});
-      window.gtag('event', 'page_view', {send_to: ga4, page_location: safePage, page_referrer: '', page_title: document.title});
+  if (!consent || !consent.getState().configured) return;
+  // Cookieless requests require a separate, documented legal/configuration decision.
+  const advanced = config.measurementPolicy?.advancedCookielessApproved === true;
+  document.documentElement.dataset.measurementMode = advanced ? 'advanced' : 'basic';
+  let initialized = false, gaConfigured = false, adsConfigured = false, lastClick = -Infinity;
+  const locationFor = state => {
+    const url = new URL(location.origin + location.pathname), query = new URLSearchParams(location.search);
+    const keys = [...(state.analytics ? ['utm_source', 'utm_medium', 'utm_campaign', 'utm_id', 'utm_term', 'utm_content'] : []),
+      ...(state.advertising ? ['gclid', 'gbraid', 'wbraid'] : [])];
+    for (const key of keys) {
+      const value = query.get(key);
+      if (value && /^[A-Za-z0-9_.~-]{1,200}$/.test(value)) url.searchParams.set(key, value);
     }
-    if (ads && label) window.gtag('config', ads, {page_location: safePage, page_referrer: '', allow_ad_personalization_signals: false});
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga4 || ads);
-    document.head.appendChild(script);
-  }
-
-  function choose(value) {
-    choice = value;
-    try { localStorage.setItem(storageKey, JSON.stringify({value, time: Date.now(), version: choiceVersion})); } catch (_) {}
-    document.documentElement.dataset.measurementState = value;
-    if (ga4) window['ga-disable-' + ga4] = value !== 'granted';
-    consent(value);
-    if (value === 'granted') initialize();
-    if (banner) banner.hidden = true;
-  }
-
-  function showChoice() {
-    if (!banner) {
-      banner = document.createElement('section');
-      banner.className = 'measurement-banner';
-      banner.setAttribute('aria-label', 'Pilihan pengukuran');
-      banner.innerHTML = '<strong>Izinkan pengukuran kunjungan?</strong><p>Dengan izin Anda, Google Analytics dan Google Ads dapat memakai cookie serta data teknis perangkat untuk mengukur kunjungan, klik WhatsApp, dan hasil iklan. Isi chat tidak dikirim. Pilihan ini tidak mengaktifkan personalisasi iklan. <a href="kebijakan-privasi.html">Baca privasi</a>.</p><div class="measurement-actions"><button type="button" data-measurement-choice="granted">Izinkan pengukuran</button><button type="button" data-measurement-choice="denied">Tolak</button></div>';
-      banner.addEventListener('click', event => {
-        const button = event.target.closest('[data-measurement-choice]');
-        if (button) choose(button.dataset.measurementChoice);
-      });
-      document.body.appendChild(banner);
+    return url.href;
+  };
+  function synchronize() {
+    const state = consent.getState();
+    if (ga4) window['ga-disable-' + ga4] = !advanced && !state.analytics;
+    window.gtag('set', {page_location: locationFor(state), page_referrer: '', allow_google_signals: false, allow_ad_personalization_signals: false});
+    if (!(advanced || state.analytics || state.advertising)) return;
+    if (!initialized) { window.gtag('js', new Date()); initialized = true; }
+    if (ga4 && !gaConfigured && (advanced || state.analytics)) {
+      gaConfigured = true;
+      window.gtag('config', ga4, {send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false});
+      window.gtag('event', 'page_view', {send_to: ga4, page_location: locationFor(state), page_referrer: '', page_title: document.title});
     }
-    banner.hidden = false;
+    if (ads && label && !adsConfigured && (advanced || state.advertising)) {
+      adsConfigured = true;
+      window.gtag('config', ads, {allow_ad_personalization_signals: false});
+    }
+    if (!document.getElementById('erojan-google-tag')) {
+      const script = document.createElement('script'); script.id = 'erojan-google-tag'; script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga4 || ads);
+      document.head.appendChild(script);
+    }
   }
-
-  document.querySelectorAll('[data-consent-settings]').forEach(button => {
-    button.hidden = false;
-    button.addEventListener('click', showChoice);
-  });
-  const explanation = document.getElementById('measurementExplanation');
-  if (explanation) explanation.textContent = 'Pengukuran Google hanya dimuat setelah Anda mengizinkan. Pilihan dapat diubah melalui Pengaturan pengukuran. Personalisasi iklan dan pengiriman isi chat tidak diaktifkan.';
-
-  let saved;
-  try { saved = JSON.parse(localStorage.getItem(storageKey) || 'null'); } catch (_) {}
-  if (saved && ['granted', 'denied'].includes(saved.value) && Date.now() - saved.time < validFor && (saved.value === 'denied' || saved.version === choiceVersion)) choose(saved.value);
-  else showChoice();
-
+  document.addEventListener('erojan:consent', synchronize);
+  synchronize();
   document.addEventListener('click', event => {
     const anchor = event.target.closest('a[href]');
-    if (!anchor || choice !== 'granted') return;
+    if (!anchor) return;
+    const state = consent.getState();
+    if (!advanced && !state.analytics && !state.advertising) return;
     let destination;
     try { destination = new URL(anchor.href); } catch (_) { return; }
-    if (destination.hostname !== 'wa.me' || destination.pathname !== '/6281391939099') return;
-    const now = Date.now();
-    if (lastClick && now - lastClick < 1000) return;
-    lastClick = now;
+    if (destination.protocol !== 'https:' || destination.hostname !== 'wa.me' || destination.pathname !== '/6281391939099') return;
+    const now = performance.now(); if (now - lastClick < 1000) return; lastClick = now;
     const section = anchor.closest('section[id]');
-    const allowed = ['atas', 'komposisi', 'tentang', 'legalitas', 'faq', 'pemesanan', 'tanya-eza'];
+    const allowed = ['atas', 'manfaat', 'video', 'komposisi', 'keseharian', 'tentang', 'legalitas', 'faq', 'pemesanan', 'tanya-eza'];
     let placement = section && allowed.includes(section.id) ? section.id : 'page';
-    if (anchor.id === 'waFloat') placement = 'floating';
+    if (anchor.id === 'waFloat' || anchor.closest('.mobile-order')) placement = 'floating';
     else if (anchor.closest('header')) placement = 'header';
     else if (anchor.closest('footer')) placement = 'footer';
     else if (anchor.closest('#chatCard')) placement = 'chat';
-    if (ga4) window.gtag('event', 'whatsapp_click', {send_to: ga4, cta_location: placement, page_location: safePage, transport_type: 'beacon'});
-    if (ads && label) window.gtag('event', 'conversion', {send_to: ads + '/' + label, value: 0, currency: 'IDR', page_location: safePage, page_referrer: '', transport_type: 'beacon'});
+    const params = {page_location: locationFor(state), page_referrer: '', transport_type: 'beacon'};
+    if (ga4 && (advanced || state.analytics)) window.gtag('event', 'whatsapp_click', {...params, send_to: ga4, cta_location: placement});
+    if (ads && label && (advanced || state.advertising)) window.gtag('event', 'conversion', {...params, send_to: ads + '/' + label, value: 0, currency: 'IDR'});
+    // Native navigation is immediate. No preventDefault, timer, or automatic conversion.
   });
 })();
