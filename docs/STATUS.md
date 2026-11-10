@@ -1,5 +1,10 @@
 # Status proyek EROJAN
 
+## Pembaruan 10 November 2026 (malam, testimoni) — section "Kabar dari pelanggan"
+
+- Tujuh Story testimoni dipetakan di docs/TESTIMONI-EROJAN-2026-11-10.md. Terpasang lima (carousel `#kabar`): kabar pengiriman 03 dan kutipan 06, 07, 01, 05 atas keputusan eksplisit pemilik setelah risiko dijelaskan. Aset 02 dan 04 ditahan.
+- Risiko diterima pemilik: testimoni khasiat bernuansa fungsi seksual pada halaman tujuan iklan (PerBPOM 34/2022, kebijakan Google Ads). Pantau status iklan; bila bermasalah, revert commit pemasangan kutipan.
+
 ## Pembaruan 10 November 2026 (malam) — paket P0/P1 dari audit panjang, kenyamanan, konversi
 
 - Struktur beranda: bagian kepercayaan ("Anda beli di tempat yang terpercaya") naik ke tepat setelah hero; `#manfaat` dihapus; foto botol kedua disembunyikan di ponsel; CTA ketiga di bawah video. Tinggi ponsel turun dari 7.418 px ke sekitar 6.440 px (7,6 layar); CTA di isi halaman pertama kini di sekitar 2,5 layar (sebelumnya 5,8).
