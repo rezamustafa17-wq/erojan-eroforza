@@ -186,3 +186,6 @@ html{scroll-padding-top:70px}
 @keyframes jumpHop{0%,35%,100%{transform:translateY(0)}45%{transform:translateY(-6px) scale(1.12)}58%{transform:translateY(0)}68%{transform:translateY(-2px)}78%{transform:translateY(0)}}
 @keyframes jumpArrow{0%,100%{transform:translateY(-2px)}50%{transform:translateY(4px)}}
 .hero-jump-label.is-learned .hero-jump-arrow{animation:none}
+/* Strip paling atas */
+.top-notice{margin:0;padding:8px 16px;background:#101a10;border-bottom:1px solid #d8bd8455;color:#d8bd84;text-align:center;font:700 12px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+@media(min-width:721px){.top-notice{font-size:13px;padding:9px 16px}}
