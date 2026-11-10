@@ -16,7 +16,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / 'dist'
-PAGES = ['index.html', 'tentang.html', 'pemesanan.html', 'kebijakan-privasi.html', 'ketentuan.html']
+PAGES = ['index.html', 'tentang.html', 'pemesanan.html', 'kebijakan-privasi.html', 'ketentuan.html', 'video.html']
 FILES = PAGES + ['favicon.svg', 'CNAME', '.nojekyll', 'robots.txt', 'sitemap.xml']
 DIRECTORIES = ['assets']
 
@@ -107,11 +107,36 @@ def check():
     if locations != expected: errors.append('Sitemap tidak sesuai halaman publik')
     for name in FILES:
         if not (ROOT / name).is_file(): errors.append('Berkas wajib tidak ditemukan: ' + name)
+    # Keep the visible player, crawlable metadata and video sitemap in sync.
+    expected_content = 'https://eroforza.com/' + data['localVideo']
+    expected_poster = 'https://eroforza.com/' + data['poster']
+    for name in ['index.html', 'video.html']:
+        page = pages.get(name)
+        if not page: continue
+        source = (ROOT / name).read_text()
+        if '<video ' not in source or data['localVideo'] not in page.refs:
+            errors.append(name + ': pemutar video lokal wajib tersedia')
+        objects = [item for part in page.json_parts
+                   for item in json.loads(part).get('@graph', [])
+                   if item.get('@type') == 'VideoObject']
+        if len(objects) != 1:
+            errors.append(name + ': harus memiliki satu VideoObject')
+        else:
+            obj = objects[0]
+            expected = dict(name=data['name'], description=data['description'],
+                            uploadDate=data['uploadDate'], duration=data['duration'],
+                            contentUrl=expected_content, thumbnailUrl=[expected_poster])
+            if any(obj.get(k) != v for k, v in expected.items()):
+                errors.append(name + ': metadata video tidak sesuai config/media.json')
+    video_ns = '{http://www.google.com/schemas/sitemap-video/1.1}'
+    entries = sitemap.findall('.//' + video_ns + 'video')
+    if len(entries) != 1 or entries[0].findtext(video_ns + 'content_loc') != expected_content or entries[0].findtext(video_ns + 'thumbnail_loc') != expected_poster:
+        errors.append('Sitemap video tidak sesuai konfigurasi media')
     video = ROOT / data['localVideo']
     with video.open('rb') as f:
         if b'ftyp' not in f.read(64): errors.append('Video lokal bukan kontainer MP4 yang dikenal')
     if errors: raise ValueError('\n'.join(errors))
-    print('LULUS: lima halaman, canonical, anchor, aset, ikon, JSON-LD, sitemap, WhatsApp, dan arsip video.')
+    print('LULUS: enam halaman, canonical, anchor, aset, ikon, JSON-LD, sitemap, WhatsApp, dan arsip video.')
 
 
 def build():
@@ -121,7 +146,7 @@ def build():
     DIST.mkdir()
     for name in FILES: shutil.copy2(ROOT / name, DIST / name)
     for name in DIRECTORIES:
-        shutil.copytree(ROOT / name, DIST / name, ignore=shutil.ignore_patterns('video', '*.ttf', 'experience.js', 'experience.css'))
+        shutil.copytree(ROOT / name, DIST / name, ignore=shutil.ignore_patterns('*.ttf', 'experience.js', 'experience.css'))
     # Validate that the deployable package resolves the same public references.
     for name in PAGES:
         page = Page(); page.feed((DIST / name).read_text())

@@ -1,5 +1,9 @@
 {
-  "localVideo": "assets/video/erojan-product.mp4",
+  "localVideo": "assets/video/erojan-tora-sudiro.mp4",
   "publicVideoUrl": "",
-  "poster": "assets/erojan-bottle.webp"
+  "poster": "assets/video/erojan-tora-sudiro.jpg",
+  "name": "Video Tora Sudiro tentang EROJAN",
+  "description": "Video pengalaman pribadi Tora Sudiro mengenai EROJAN. Pengalaman dalam video bukan jaminan hasil yang sama.",
+  "uploadDate": "2026-10-27",
+  "duration": "PT52.034S"
 }

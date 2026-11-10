@@ -1,6 +1,96 @@
 # Status proyek EROJAN
 
+## Pembaruan 10 November 2026 — banner privasi dihapus
+
+- Banner/panel privasi dan tombol "Pengaturan pengukuran" dihapus dari enam halaman karena menaikkan bounce rate dan menurunkan konversi. `measurement-ui.js` dan `measurement.css` dihapus.
+- `assets/measurement-consent.js` kini memberi consent default granted untuk statistik dan iklan; personalisasi iklan tetap denied. Pilihan "Tolak" lama di localStorage dihapus dan diabaikan. Pengukuran GA4 dan konversi klik WhatsApp tetap berjalan.
+- Kebijakan privasi diperbarui agar sesuai. Bagian dokumen consent 3 November di bawah adalah riwayat dan tidak lagi berlaku. Perubahan ini baru lokal; belum di-commit atau dipublikasikan.
+- Risiko diketahui: pengunjung EEA/UK/CH dan hukum PDP Indonesia umumnya mensyaratkan dasar hukum/persetujuan untuk cookie iklan. Keputusan ini ada pada pemilik.
+
+## Audit sore 6 November 2026 — penayangan, relevansi dan perbaikan
+
+- Snapshot 18.04 WIB: DVN 135 impresi/13 klik/Rp88.310; EROJAN 18 impresi/0 klik/Rp0. Pengguna melaporkan 0 chat keduanya.
+- Teks RSA DVN diperbaiki dan final URL tetap /dvn sesuai penegasan menjaga gambar/desain. RSA pemesanan EROJAN tidak lagi memuat harga nominal, sesuai pilihan harga via WA. Edit direview Google; pembatasan EROJAN belum selesai.
+- Layanan DVN diselaraskan dengan konfirmasi aktif pemilik; PR DVN #6, CI/deploy success. Semua aset gambar dipertahankan. Budget/bidding/status campaign tetap.
+- Laporan lengkap dan lampiran 104 query: output/google-ads/2026-11-06-sore/AUDIT-LENGKAP-DVN-EROJAN.md. Lokasi putus funnel diketahui; motif tiap pengunjung belum dibuktikan.
+
+
+## Pembaruan 6 November 2026 — CTA pemesanan dan negatif DVN
+
+- CTA beranda dan pemesanan EROJAN diperjelas untuk harga/stok/ongkir; PR #1 merged, GitHub Pages success pada commit 0d8c4f9. Nomor WA, desain, video, bahan dan pengukuran dipertahankan.
+- 12 negatif pertanyaan pembeli DVN dicabut dan 9 frasa perekrutan ditambahkan; readback daftar 2509. Budget/bidding/status tetap.
+- Keyword/lokasi/negatif EROJAN dan sitelink masih dibatasi konektor; pembatasan kebijakan EROJAN belum terselesaikan. Hasil penjualan belum dapat dinilai tanpa rekap pembayaran.
+- Bukti dan paket tindak lanjut: output/google-ads/2026-11-06/HASIL-PENERAPAN-PERFORMA.md.
+
+
+## Pembaruan terbaru — kontrol privasi sudah terbit 3 November 2026
+
+- Pemilik menyetujui versi staging dan meminta eksekusi; commit produksi `37802b8a7229f637e7bf9042fbf6c36bd676b186` sudah di main dan GitHub Pages built.
+- Panel privasi berada dalam alur halaman, CTA tidak tertutup, pilihan statistik/iklan terpisah. Advanced/cookieless tetap nonaktif; nomor WA dan video Tora dipertahankan.
+- Check/build/diff check dan 13 tes consent lulus. Lima belas berkas publik HTTP 200 dan cocok dengan berkas rilis lokal. Batas QA Chrome/perangkat fisik/performa tetap dicatat, tidak dianggap selesai oleh persetujuan rilis.
+- [Hasil publikasi consent dan rollback](HASIL-PUBLIKASI-CONSENT-EROJAN-2026-11-03.md).
+
+## Pembaruan terbaru — landing page baru 3 November 2026
+
+- Landing page baru sudah terbit di https://eroforza.com/ melalui commit `fa89888949ba161947087cec390b5a52c4fc7538`; main dan GitHub Pages cocok, status built.
+- Video Tora Sudiro dipakai kembali atas permintaan pemilik; nominal harga dihapus dan pemesanan diarahkan ke WhatsApp 0813-9193-9099. Ini menggantikan pilihan video pada catatan historis 1 November di bawah.
+- Pengukuran dengan izin pengunjung dipertahankan. Check, build, diff check, tes tracking dan pemeriksaan sintaks lulus. Sembilan berkas publik HTTP 200 dan identik dengan hasil uji.
+- Perubahan sitelink **belum diterapkan**: konektor Composio membatasi mutasi aset. Enam sitelink telah dibaca dan tujuan pengganti disiapkan; tidak ada budget, bidding, status, goal, atau resource DVN diubah.
+- [Hasil publikasi dan batas pekerjaan](HASIL-PUBLIKASI-LANDING-EROJAN-2026-11-03.md) · [Daftar tujuan sitelink](SITELINK-LANDING-BARU-EROJAN-2026-11-03.md).
+
+## Hasil terbaru — koreksi materi 1 November 2026
+
+- Kampanye 24401417000 kini ENABLED, budget Rp100.000/hari dan MAXIMIZE_CONVERSIONS. Catatan PAUSED di bawah adalah riwayat sebelum pemilik mengaktifkannya pada 31 Oktober pukul 21.19 WIB.
+- Data BPOM diperiksa ulang: Obat Tradisional, TI223079121, botol 60 kapsul, kegunaan membantu memelihara stamina pria dan enam ekstrak. Nama umum bahan tidak disamarkan.
+- Tiga RSA diperbaiki dan dibaca ulang; klaim testosteron, kategori suplemen, official store, gratis ongkir/COD dan jaminan tanpa bukti pada iklan pemesanan diganti informasi faktual.
+- Koreksi situs dan video informasi tanpa testimoni terbit pada commit b51a8c27a6868fb4e443c7476b603525f7e8e7ea setelah persetujuan pemilik. GitHub Pages built; tujuh berkas publik HTTP 200 dan identik dengan hasil uji.
+- Google mengonfirmasi dua banding berhasil diajukan untuk grup Brand dan Harga/Pemesanan. Hasil akhir belum tersedia; jangan menyebut sudah bebas pembatasan.
+- Snapshot API setelah banding: RSA 829623996927 dan 829670428221 REVIEW_IN_PROGRESS/UNKNOWN, RSA 829670584290 masih REVIEWED/APPROVED_LIMITED; konfirmasi pengajuan grup tetap tersimpan.
+- Label Indonesia lengkap seluruh sisi masih diperlukan untuk pemeriksaan aturan pakai dan peringatan menyeluruh. Lihat [laporan koreksi](HASIL-KOREKSI-KEBIJAKAN-EROJAN-2026-11-01.md).
+
+## Hasil terbaru - eksekusi 28 Oktober 2026
+
+Struktur penuh EROJAN sudah diterapkan: campaign 24401417000, dua grup, delapan Exact keyword, dua RSA baru, delapan callout, empat sitelink dan 19 negatif. MAXIMIZE_CONVERSIONS tanpa tCPA, budget tetap Rp100.000/hari; campaign PAUSED karena review dan kelayakan materi belum lengkap. Tracking publik terverifikasi; tidak ada penjualan/atribusi iklan palsu. Audit 35/35 lengkap, konfigurasi DVN/default goals yang dibandingkan tetap sama; Quality Score keluaran Google pada satu keyword DVN berubah 5 -> 7 dan dicatat terpisah. Website kategori/harga sudah terbit melalui commit dcbd30f0817c6aba87224aa88f4066ba2c644d2e. Skrip AUDIT/PLAN tanpa jadwal. Lihat [laporan pelaksanaan lengkap](HASIL-EKSEKUSI-MAX-KONVERSI-EROJAN-2026-10-28.md). Bagian lama berikut adalah riwayat dan dapat berisi kondisi sebelum tindak lanjut ini.
+
+
 Diperbarui: 27 Oktober 2026, WIB.
+
+## Pengaitan custom goal dan tracking EROJAN — sudah diuji nyata
+
+- Google Ads Scripts membuat campaign EROJAN 24401417000 PAUSED, budget terpisah Rp100.000/hari, action klik WhatsApp 7875315571 secondary, dan custom goal 6459649144. Goal sudah dikaitkan dengan ID nyata dan dua standard goal EROJAN dinonaktifkan untuk isolasi. Snapshot DVN/account goals yang dibandingkan identik.
+- Audit akhir 35/35 laporan OK, tidak terpotong, complete=true; biaya/klik/impresi EROJAN nol. Ini setup minimal validasi satu keyword/satu grup/satu RSA, bukan penerapan rancangan riset penuh dan bukan aktivasi penayangan.
+- Tracking AW-18414837888 / MseCCPOOn6sdEIDB8MxE dipublikasikan pada commit main 4e74170f54f7def7db4d10fe9e5c303211a6b560. GitHub Pages built; dua aset publik HTTP 200 dan identik dengan sumber teruji.
+- Tag Assistant Google di Safari terhubung ke situs publik dan menampilkan event conversion dengan Hit Dikirim ke action EROJAN, label benar, value 0 IDR. Consent versi 2 meminta ulang izin granted lama; personalisasi tetap denied. Tidak ada chat dikirim atau atribusi klik iklan palsu.
+- Skrip tersimpan kembali pada AUDIT/PLAN dan identik setelah reload. Belum ada uji atribusi dari iklan berbayar karena kampanye tetap PAUSED.
+- Laporan lengkap: [HASIL-GOAL-TRACKING-EROJAN-2026-10-27.md](HASIL-GOAL-TRACKING-EROJAN-2026-10-27.md). Bagian lama yang menyatakan belum dibuat/ditautkan digantikan hasil ini untuk resource yang sama.
+
+
+## Riset arsitektur Google Ads EROJAN — 27 Oktober 2026
+
+- Riset baru membaca Google Ads Keyword Planner, daftar kampanye akun tujuan, Google Trends Indonesia melalui DataForSEO, situs publik, portal BPOM/BPJPH, serta kebijakan resmi Google dan PerBPOM 34/2022. Tidak ada perubahan akun iklan atau website publik dalam riset ini.
+- Pengguna mengoreksi angka: budget Rp100.000 per hari, harga Rp769.000 dan **HPP Rp423.000** per botol. Laba kotor Rp346.000 (44,99%), sebelum iklan dan biaya lain. Sasaran CPA Rp200.000 menyisakan Rp146.000 sebelum biaya lain; masih usulan sementara. Batas CPA impas maksimal Rp346.000 sebelum biaya lain, ROAS impas minimal 2,22x. Laporan, PDF dan paket unduhan telah dikoreksi.
+- BPOM live menampilkan kategori **Obat Tradisional**, NIE TI223079121, botol 60 kapsul, dan kegunaan “Membantu memelihara stamina pria”. Copy website “suplemen”/“Suplemen bukan obat” perlu diselaraskan sebelum aktivasi; belum diubah oleh riset ini. Label Indonesia lengkap dan audio/video belum diaudit menyeluruh.
+- Pilihan uji terbaru sesuai arahan pemilik: **Maksimalkan konversi setelah tracking publik berfungsi dan lulus QA**, budget rata-rata Rp100.000/hari, tanpa target CPA pada awal uji. Batas CPC Rp3.000 dari rancangan Max Klik tidak dipakai pada strategi Search ini. Sasaran bisnis Rp200.000 tetap per pesanan selesai, bukan per klik WA.
+- Rancangan struktur tetap satu Search campaign PAUSED, dua ad group, delapan keyword Exact, dua RSA (30 headline/8 deskripsi), delapan callout, empat sitelink dan daftar negatif. Pemeriksaan akun lanjutan menemukan kampanye EROJAN ID 24401417000 sudah ada, Paused dan masih Max Klik; struktur rinci rancangan belum dianggap sudah terpasang. Jangan membuat kampanye duplikat.
+- Custom goal EROJAN ID 6459649144 sudah terhubung ke kampanye, hanya berisi action klik WA ID 7875315571. Action Secondary dipakai untuk bidding melalui custom goal; ini belum chat nyata atau penjualan. Pemeriksaan publik terakhir sebelum revisi menemukan ID/label kosong sementara lokal sudah terisi; revisi dokumen tidak menerbitkan atau menguji ulang tracking.
+- Forecast API Max Klik lama untuk 28 Oktober–3 November (7,52 klik/Rp12.679 pada batas Rp3.000; 11,32 klik/Rp32.437 pada batas Rp4.500) dipertahankan sebagai pembanding historis. **Bukan forecast Maksimalkan konversi** dan bukan janji traffic, biaya atau penjualan strategi baru.
+- Panduan lengkap: [RISET-KAMPANYE-EROJAN-RP100000-2026-10-27.md](RISET-KAMPANYE-EROJAN-RP100000-2026-10-27.md). Aset terstruktur: `campaigns/erojan-research-2026-10-27/ASET-DAN-STRUKTUR.json`. PDF tersedia di `output/pdf/`. Bukti baca tetap di `.local-state/ads-research-2026-10-27/`.
+- Laporan Markdown/PDF, JSON, teks aset dan ZIP diselaraskan dengan pilihan bidding baru. JSON adalah referensi input manual, bukan file impor Editor. Paket impor lama di bawah tidak memuat pilihan bidding/goal terbaru; jangan mengimpor dua versi sekaligus. Peran hukum pengiklan menentukan jalur persetujuan/pengecualian sesuai pasal 8 dan 23. Revisi dokumen ini tidak mengubah akun maupun website publik.
+
+## Pemulihan video dan SEO — 27 Oktober 2026 (sudah terbit)
+
+- Situs publik diperiksa: beranda HTTP 200 tanpa elemen video; `/assets/video/erojan-product.mp4` HTTP 404.
+- Pemutar asli dikembalikan ke beranda, sesudah ringkasan produk; halaman utama khusus menonton tersedia di `video.html`.
+- Build kini menyertakan video 5.297.391 byte dan thumbnail JPEG dari frame asli. R2 tidak diaktifkan atau diubah.
+- `VideoObject`, canonical halaman video, izin pratinjau video, dan entri sitemap video ditambahkan. Durasi media 52,033 detik di browser; kontainer 52,034 detik. Tanggal metadata menggunakan tanggal publikasi pemulihan yang direncanakan, 27 Oktober 2026; belum ada bukti video pernah terbit sebelumnya.
+- Check memeriksa kesesuaian konfigurasi, pemutar, metadata dan sitemap. Check, build serta git diff --check lulus.
+- QA dari dist: video berhasil diputar (currentTime meningkat, readyState 4, tanpa media error); desktop 1280 px dan ponsel 390 px tanpa luapan horizontal. Tidak dilakukan audit baru atas semua klaim audio/video.
+- Bukti lokal di `.local-state/video-repair/`. Commit publikasi terbatas disiapkan: `6864db13dbc157f31ce1a60b82ddc87cc39396c0`, berbasis main `9c90f1b867fa2176b766e6c18b6b8ebea65c6f4a`. Staging kampanye yang sudah ada tetap dipertahankan.
+- Setelah pemilik memberi persetujuan eksplisit “oke terbitkan”, commit `6864db13dbc157f31ce1a60b82ddc87cc39396c0` berhasil didorong ke main tanpa force. GitHub Pages berstatus built untuk commit tersebut. Penolakan publikasi awal terselesaikan oleh persetujuan ini.
+- Verifikasi publik: beranda dan video.html HTTP 200 dengan pemutar serta VideoObject; thumbnail HTTP 200; sitemap HTTP 200 dengan entri video. MP4 utuh HTTP 200, SHA-256 sama dengan sumber lokal (5.297.391 byte); range/seek HTTP 206.
+- Pemutaran di browser publik berhasil: currentTime 25,308 detik, durasi 52,033 detik, paused false, readyState 4, tanpa media error pada pembacaan terakhir. Bukti: `.local-state/video-repair/video-live.png` dan `live-verification.json`.
+- Penambahan markup tidak menjamin indeks maupun tampilan hasil video Google.
+
 
 ## Kampanye EROJAN: paket impor Rp100.000 per hari
 
@@ -14,14 +104,22 @@ Diperbarui: 27 Oktober 2026, WIB.
 - Rp100.000 adalah rata-rata harian: untuk kebanyakan kampanye Google dapat membelanjakan Rp200.000 pada hari tertentu, dengan batas bulanan Rp3.040.000 bila budget tetap sepanjang bulan. Kampanye tetap dijeda saat diposting untuk ditinjau.
 
 
+## Perbaikan Google Ads Scripts — 27 Oktober 2026
+
+- Tanpa Composio. Versi 2026-10-27.2 memperbaiki builder Search (bahasa otomatis, referensi lokasi include/exclude), memisahkan CREATE_CUSTOM_GOAL dan LINK_CUSTOM_GOAL dengan ID nyata, serta menambahkan batch conversion action dan ekspor tag terfilter.
+- 30 tes lokal lulus. Preview Google: 17 skenario positif lulus dan dua kontrol negatif ditolak sesuai harapan, termasuk empat bidding Search dan lima tipe conversion action. Pengaitan custom goal memakai ID nyata telah diuji lokal; belum diuji live karena belum ada goal tersimpan dan tidak dibuat objek produksi untuk pengujian.
+- Task ekspor tag diuji nyata pada action lama: dua laporan OK dan complete=true, tanpa mengubah action. Tidak ada APPLY campaign/budget/konversi/goal dalam perbaikan ini.
+- Akun 973-306-3009 dan URL Sheets yang sudah terpasang dipertahankan. Batas laporan menjadi 12.000 untuk katalog Indonesia yang saat audit memuat 10.670 baris.
+- Panduan: integrations/google-ads-scripts/RECIPES.md; bukti dan keterbatasan: integrations/google-ads-scripts/VALIDATION.md. Bagian pemasangan awal di bawah adalah riwayat sebelum audit dan perbaikan.
 
 ## Google Ads: jalur Google Ads Scripts
 
 - Pengguna memilih tidak melanjutkan Google Cloud/OAuth client pribadi dan meminta konfigurasi melalui skrip Google.
 - Paket lokal tersedia di `integrations/google-ads-scripts/`: Code.js, README, contoh konfigurasi dan pengujian offline.
+- Pengguna mengonfirmasi akun tujuan `973-306-3009` yang juga berisi DVN; account guard sudah diisi. Default konversi baru secondary dan perubahan campaign memakai ID spesifik.
 - Runtime yang digunakan adalah Google Ads Scripts di akun Ads, bukan editor Apps Script biasa. Authorize bawaan Google tetap diperlukan; tidak memerlukan token dari Composio.
 - Paket mencakup builder Search campaign PAUSED, update campaign/budget, create/update konversi, goals/custom goals, generic mutate dan laporan Sheets. Mode default PLAN/AUDIT.
-- Pengujian lokal dengan mock lulus; pemasangan, Authorize, Preview dan eksekusi di akun pengguna belum dilakukan. Belum ada perubahan iklan/konversi/budget.
+- Status awal 26 Oktober: 22 tes mock lulus sebelum pemasangan. Status ini digantikan hasil audit dan perbaikan 27 Oktober di atas.
 - Riset dan berkas REST/OAuth sebelumnya dipertahankan, tetapi tidak diaktifkan. R2 tetap ditunda.
 
 ## Status terbaru: peningkatan SEO dan pengukuran
