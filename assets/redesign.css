@@ -82,3 +82,10 @@
 .mobile-order .button{font-size:13px}
 }
 @media(max-width:370px){.hero-actions .button{font-size:13px}}
+.kabar{background:var(--sage)}
+.kabar-grid{display:grid;grid-template-columns:1fr minmax(0,300px);gap:64px;align-items:center}
+.kabar-list{list-style:none;margin:0;padding:0;display:grid;gap:20px}
+.kabar-list figure{margin:0}
+.kabar-list img{display:block;width:100%;height:auto;border:1px solid #1c2b1b33;border-radius:10px;box-shadow:0 12px 30px #0002}
+.kabar-list figcaption{font-size:12px;line-height:1.5;color:var(--muted);margin-top:10px}
+@media(max-width:720px){.kabar-grid{grid-template-columns:1fr;gap:28px}.kabar-list{max-width:240px}}

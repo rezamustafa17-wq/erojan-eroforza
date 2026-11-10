@@ -8,9 +8,9 @@
   try { query = new URLSearchParams(location.search); } catch (_) { return; }
   const fromAds = query.has('gclid') || query.has('gbraid') || query.has('wbraid') || query.get('utm_source') === 'google';
   const source = fromAds ? 'G' : 'W';
-  // Posisi: H header, A hero, E bagian kepercayaan, V video, O pemesanan, B bar mobile, F tombol mengambang, T footer, L lainnya.
+  // Posisi: H header, A hero, E bagian kepercayaan, V video, K kabar pelanggan, O pemesanan, B bar mobile, F tombol mengambang, T footer, L lainnya.
   const place = a => a.id === 'waFloat' ? 'F' : a.closest('.mobile-order') ? 'B' : a.closest('header') ? 'H' :
-    a.closest('footer') ? 'T' : a.closest('.hero') ? 'A' : a.closest('#kenapa-eza') ? 'E' : a.closest('#video') ? 'V' :
+    a.closest('footer') ? 'T' : a.closest('.hero') ? 'A' : a.closest('#kenapa-eza') ? 'E' : a.closest('#video') ? 'V' : a.closest('#kabar') ? 'K' :
     a.closest('#pemesanan') ? 'O' : 'L';
   document.querySelectorAll('a[href^="' + BASE + '"]').forEach(a => {
     const raw = a.getAttribute('href') || '';

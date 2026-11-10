@@ -75,7 +75,7 @@
     if (destination.protocol !== 'https:' || destination.hostname !== 'wa.me' || destination.pathname !== '/6281391939099') return;
     const now = performance.now(); if (now - lastClick < 1000) return; lastClick = now;
     const section = anchor.closest('section[id]');
-    const allowed = ['atas', 'kenapa-eza', 'manfaat', 'video', 'komposisi', 'keseharian', 'tentang', 'legalitas', 'faq', 'pemesanan', 'tanya-eza'];
+    const allowed = ['atas', 'kenapa-eza', 'manfaat', 'video', 'kabar', 'komposisi', 'keseharian', 'tentang', 'legalitas', 'faq', 'pemesanan', 'tanya-eza'];
     let placement = section && allowed.includes(section.id) ? section.id : 'page';
     if (anchor.id === 'waFloat' || anchor.closest('.mobile-order')) placement = 'floating';
     else if (anchor.closest('header')) placement = 'header';
