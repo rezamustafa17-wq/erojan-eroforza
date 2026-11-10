@@ -5,6 +5,8 @@
   const ads = /^AW-\d+$/.test(config.googleAdsConversionId || '') ? config.googleAdsConversionId : '';
   const label = /^[A-Za-z0-9_-]+$/.test(config.googleAdsConversionLabel || '') ? config.googleAdsConversionLabel : '';
   if (!consent || !consent.getState().configured) return;
+  // Tag Google hanya berjalan di domain produksi agar pratinjau lokal dan pengujian tidak mencemari data.
+  if (!/(^|\.)eroforza\.com$/.test(location.hostname)) return;
   // Cookieless requests require a separate, documented legal/configuration decision.
   const advanced = config.measurementPolicy?.advancedCookielessApproved === true;
   document.documentElement.dataset.measurementMode = advanced ? 'advanced' : 'basic';
@@ -39,6 +41,19 @@
       script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga4 || ads);
       document.head.appendChild(script);
     }
+  }
+  // Diagnosis bounce: apakah pengunjung memutar video dan seberapa jauh membaca.
+  const track = (name, params) => { if (ga4 && consent.getState().analytics) window.gtag('event', name, {...params, send_to: ga4}); };
+  const video = document.getElementById('product-video');
+  if (video) video.addEventListener('play', () => track('video_play', {video_title: 'Tora Sudiro'}), {once: true});
+  if (typeof window.addEventListener === 'function') {
+    const marks = [25, 50, 75, 90], seen = new Set();
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (!(max > 0)) return;
+      const pct = window.scrollY / max * 100;
+      for (const mark of marks) if (pct >= mark && !seen.has(mark)) { seen.add(mark); track('scroll_depth', {percent: mark}); }
+    }, {passive: true});
   }
   document.addEventListener('erojan:consent', synchronize);
   synchronize();

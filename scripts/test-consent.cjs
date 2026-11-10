@@ -6,7 +6,7 @@ const consentSource = readFileSync('assets/measurement-consent.js', 'utf8');
 const trackingSource = readFileSync('assets/tracking.js', 'utf8');
 const ids = {ga4MeasurementId:'G-TEST123',googleAdsConversionId:'AW-123456',googleAdsConversionLabel:'TEST_LABEL'};
 let passed = 0;
-function setup({config=ids, oldChoice, deniedStorage=false, search='?gclid=TEST_CLICK&utm_source=google&health=PRIVATE'}={}) {
+function setup({host='eroforza.com',config=ids, oldChoice, deniedStorage=false, search='?gclid=TEST_CLICK&utm_source=google&health=PRIVATE'}={}) {
   const docListeners = {}, nodes = [], store = new Map();
   if (oldChoice) store.set('erojan_measurement_choice', oldChoice);
   const document = {title:'EROJAN',documentElement:{dataset:{}},
@@ -19,7 +19,7 @@ function setup({config=ids, oldChoice, deniedStorage=false, search='?gclid=TEST_
   const window = {EROJAN_PUBLIC_CONFIG:config};
   const context = {window,document,URL,URLSearchParams,Date,Set,encodeURIComponent,performance:{now:()=>tick},
     CustomEvent:class {constructor(type,options){this.type=type;this.detail=options.detail;}},
-    location:{origin:'https://eroforza.com',pathname:'/',hostname:'eroforza.com',search},
+    location:{origin:'https://eroforza.com',pathname:'/',hostname:host,search},
     localStorage:{getItem:k=>store.get(k),removeItem:k=>{if(deniedStorage)throw Error('blocked');store.delete(k);}}};
   vm.runInNewContext(consentSource,context);
   vm.runInNewContext(trackingSource,context);
@@ -57,6 +57,12 @@ test('old "Tolak" choice in localStorage is cleared and no longer blocks trackin
 });
 test('blocked localStorage does not break tracking',()=>{
   const s=setup({deniedStorage:true,oldChoice:'x'});assert.equal(s.events('page_view').length,1);
+});
+test('non-production host never loads tags or sends events',()=>{
+  for(const host of ['localhost','127.0.0.1','preview.example.com']){const s=setup({host});s.click();assert.equal(s.nodes.length,0);assert.equal(s.events().length,0);}
+});
+test('production host and www subdomain load tags',()=>{
+  for(const host of ['eroforza.com','www.eroforza.com'])assert.equal(setup({host}).nodes.length,1);
 });
 test('missing IDs/partial Ads config never load tags',()=>{
   for(const config of [{},{googleAdsConversionId:'AW-123456'}]){const s=setup({config});s.click();assert.equal(s.nodes.length,0);assert.equal(s.events().length,0);}

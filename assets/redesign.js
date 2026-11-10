@@ -41,3 +41,15 @@
   window.addEventListener('hashchange', reveal);
   reveal();
 })();
+
+// Bar WhatsApp mobile baru tampil setelah tombol utama di hero tidak terlihat, agar layar pertama tidak berisi tiga tombol sama.
+(() => {
+  const cta = document.querySelector('.hero-actions .button-light');
+  if (!cta || !('IntersectionObserver' in window)) return;
+  const root = document.documentElement;
+  root.classList.add('sticky-ready');
+  new IntersectionObserver(([entry]) => {
+    const passed = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+    root.classList.toggle('show-sticky', passed);
+  }, {threshold: 0}).observe(cta);
+})();

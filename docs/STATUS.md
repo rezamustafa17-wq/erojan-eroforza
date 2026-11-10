@@ -1,5 +1,14 @@
 # Status proyek EROJAN
 
+## Pembaruan 10 November 2026 (sore) — perbaikan konversi dan bounce
+
+- Hasil kritik `impeccable` (skor 26/32) dieksekusi kecuali harga: harga tetap tidak ditampilkan, pemesanan lewat WhatsApp.
+- Hero: H1 "Rawat stamina. EROJAN, 60 kapsul.", chip Obat Tradisional + BPOM TI223079121 (tautan Cek BPOM), tiga poin kepastian (tanya dulu tidak wajib membeli; harga/stok/ongkir tertulis di chat; rincian disepakati sebelum membayar), baris "Dilayani langsung oleh Eza". Pesan WhatsApp kini berkolom jumlah botol dan kota.
+- Bagian "keseharian" (daftar gejala) diganti "Tanya dulu. Putuskan kemudian." dengan foto Eza dan empat jaminan faktual. Urutan FAQ: harga dan stok pertama, pertanyaan testosteron terakhir. Label CTA seragam "Tanya harga".
+- Mobile: tombol header disembunyikan, bar tempel baru muncul setelah tombol hero lewat, botol lebih kecil. Gambar hero PNG 1 MB diganti WebP 23-86 KB (srcset). Teks kecil dan kontras footer/CTA diperbaiki. Bug override warna footer yang sempat saya buat sudah diperbaiki sebelum rilis.
+- Pengukuran: event `video_play` dan `scroll_depth` (25/50/75/90); tag Google hanya berjalan di eroforza.com (localhost dan pratinjau tidak lagi mencemari GA4).
+- Menunggu data dari pemilik: jam balas Eza dan konfirmasi klaim kemasan (mis. dikemas tanpa keterangan isi). Belum ditulis di situs.
+
 ## Pembaruan 10 November 2026 (siang) — SEO/GEO/AIO dan akun Google
 
 - Situs: JSON-LD FAQPage dan Product (tanpa harga) di beranda, BreadcrumbList serta OG/Twitter di halaman lain, `llms.txt`, aturan crawler AI di `robots.txt`, `lastmod` sitemap diperbarui. Teks dan desain tidak berubah. Commit 450ba06 di main.
