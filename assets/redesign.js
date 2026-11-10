@@ -124,3 +124,13 @@
   reduce.addEventListener?.('change', () => { if (reduce.matches) { userPaused = true; label(); } });
   label();
 })();
+
+// Animasi petunjuk pada empat tombol anchor berhenti begitu pengunjung menyentuhnya.
+(() => {
+  const nav = document.querySelector('.hero-jump');
+  if (!nav) return;
+  const label = document.querySelector('.hero-jump-label');
+  const learn = () => { nav.classList.add('is-learned'); if (label) label.classList.add('is-learned'); };
+  ['pointerdown', 'touchstart', 'focusin'].forEach(ev => nav.addEventListener(ev, learn, {once: true, passive: true}));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('mouseenter', learn, {once: true}));
+})();
