@@ -6,9 +6,19 @@ Website berupa HTML, CSS, dan JavaScript statis. Tidak memerlukan pemasangan pak
 
 ## Hasil terbaru
 
-Versi peningkatan SEO sudah tersedia di https://eroforza.com/. Lima halaman publik meliputi informasi produk, Tentang Eza, pemesanan, privasi dan ketentuan. Search Console telah terverifikasi dengan sitemap lima URL; GA4 memakai pilihan izin pengunjung.
+Kontrol privasi baru sudah terbit pada 3 November 2026 setelah persetujuan pemilik. Overlay yang menutupi tombol WhatsApp diganti panel dalam halaman; izin statistik dan iklan terpisah. Basic Consent Mode tetap digunakan, Advanced/cookieless nonaktif. Lihat [hasil publikasi consent](docs/HASIL-PUBLIKASI-CONSENT-EROJAN-2026-11-03.md).
 
-Baca [laporan lengkap peningkatan](docs/HASIL-PENINGKATAN-EROJAN-2026-10-26.md), [pengukuran](docs/PENGUKURAN-EROJAN.md), dan [status proyek](docs/STATUS.md) sebelum melanjutkan. R2 tetap ditunda; video tersimpan sebagai sumber lokal dan tidak ikut paket publik terbaru.
+Landing page baru terbit pada 3 November 2026 dengan video Tora Sudiro, tanpa nominal harga, dan CTA ke WhatsApp. Pengukuran dengan izin pengunjung dipertahankan. Perubahan sitelink belum diterapkan karena pembatasan konektor. Lihat [hasil publikasi](docs/HASIL-PUBLIKASI-LANDING-EROJAN-2026-11-03.md) dan [daftar tujuan sitelink](docs/SITELINK-LANDING-BARU-EROJAN-2026-11-03.md).
+
+Koreksi materi EROJAN terbit pada 1 November 2026: komposisi mengikuti detail registrasi BPOM, video testimoni diganti video informasi faktual, dan tiga teks iklan diperbaiki. Dua pengajuan peninjauan Google berhasil diterima; keputusan akhir belum tersedia. Campaign kini aktif, dengan budget tetap Rp100.000/hari. Label Indonesia lengkap masih diperlukan untuk audit menyeluruh. Lihat [laporan koreksi](docs/HASIL-KOREKSI-KEBIJAKAN-EROJAN-2026-11-01.md).
+
+## Riwayat eksekusi 28 Oktober 2026
+
+Arsitektur Google Ads EROJAN telah diterapkan 28 Oktober 2026: Maximize conversions tanpa tCPA, dua grup/delapan Exact keyword dan aset lengkap. Campaign tetap Paused karena review serta bukti materi belum lengkap. Lihat [hasil eksekusi](docs/HASIL-EKSEKUSI-MAX-KONVERSI-EROJAN-2026-10-28.md) dan [SOP evaluasi pesanan](docs/SOP-EVALUASI-PESANAN-EROJAN.md).
+
+Versi peningkatan SEO sudah tersedia di https://eroforza.com/. Enam halaman publik meliputi informasi produk, video, Tentang Eza, pemesanan, privasi dan ketentuan. Search Console telah terverifikasi dengan sitemap lima URL; GA4 memakai pilihan izin pengunjung.
+
+Baca [laporan lengkap peningkatan](docs/HASIL-PENINGKATAN-EROJAN-2026-10-26.md), [pengukuran](docs/PENGUKURAN-EROJAN.md), dan [status proyek](docs/STATUS.md) sebelum melanjutkan. R2 tetap ditunda. Perbaikan 27 Oktober mengembalikan pemutar beranda, halaman `video.html`, metadata dan sitemap video; `dist` kini menyertakan MP4 beserta thumbnail. Perbaikan sudah diterbitkan setelah persetujuan pemilik; video publik berhasil diputar.
 
 ## Mulai bekerja
 

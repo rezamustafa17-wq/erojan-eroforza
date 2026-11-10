@@ -1,5 +1,11 @@
 # Video produk dan Cloudflare R2
 
+## Ditunda: menunggu aktivasi
+
+Keputusan pengguna pada 26 Oktober 2026: tahan pekerjaan R2 sampai pemilik mengaktifkannya melalui dashboard dengan kartu kredit. Aktivasi/checkout belum dilakukan dalam sesi ini. Pemeriksaan API terakhir: token aktif, akun sesuai, daftar langganan kosong, dan R2 ditolak HTTP 403 kode `10042`.
+
+Langkah berikutnya setelah aktivasi oleh pemilik: uji ulang akses bucket. Unggah video dan konfigurasi URL publik masih tertunda.
+
 ## Berkas yang tersedia
 
 - Video website: `assets/video/erojan-product.mp4`.

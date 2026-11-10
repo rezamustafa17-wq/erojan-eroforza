@@ -1,0 +1,9 @@
+# Cakupan graf EROJAN: hanya assets/, scripts/, dan halaman HTML di root.
+# Semua yang lain (docs, campaigns, integrations, output, references,
+# .local-state, .env, dsb.) dikecualikan.
+/*
+!/assets/
+!/scripts/
+!/*.html
+# Media biner tidak berguna untuk graf kode
+/assets/video/
