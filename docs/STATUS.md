@@ -1,5 +1,10 @@
 # Status proyek EROJAN
 
+## Pembaruan 10 November 2026 (malam) — dokumen pada section sertifikat
+
+- `#sertifikat` kini memuat galeri tiga dokumen resmi: persetujuan pendaftaran BPOM (izin edar TI223079121, berlaku sampai 17 November 2027), nomor registrasi sertifikat halal luar negeri BPJPH (REG RI HL MY000017890124, berlaku sampai 31 Desember 2027), dan lampiran daftar produk (EROJAN Capsule). Judul menjadi "Sertifikat BPOM dan halal EROJAN." Ponsel: geser samping; desktop: tiga kolom. Ketuk membuka ukuran penuh (1440 px).
+- Dokumen lain dari kiriman pemilik sengaja belum dipasang; alasan dan keputusan dicatat secara lokal, tidak di repositori publik.
+
 ## Pembaruan 10 November 2026 (malam) — hero baru, anchor, section sertifikat BPOM
 
 - Hero: di ponsel botol kini di atas (utuh di layar pertama, y 79-319 dari 844), lalu H1, tombol WhatsApp (y 592-641), empat tombol anchor (Testimoni, Bahan, Sertifikat, Keaslian penjual) menuju `#testimoni`, `#komposisi`, `#sertifikat`, `#kenapa-eza`. Tombol "Tonton video" dihapus karena video dijangkau lewat Testimoni. Header ponsel 56 px. Di desktop poin keyakinan dua kolom.
