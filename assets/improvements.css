@@ -2,3 +2,17 @@ body{padding-bottom:95px}.hero{padding:0 0 36px}.hero-grid{grid-template-areas:'
 @media(min-width:960px){.hero-grid{grid-template-columns:1.05fr .95fr;grid-template-areas:'copy photo';min-height:540px;gap:50px}.hero-copy{padding:44px 0}.hero-copy h1{font-size:clamp(5.3rem,7.6vw,6.8rem)}.hero-photo.hero-product{width:100%;margin:0}.hero-actions{flex-wrap:wrap}.hero-facts{max-width:520px}.order-summary-grid{grid-template-columns:1fr auto}.info-page{padding-top:60px}}
 
 .video-layout{display:grid;gap:24px;align-items:center}.video-frame{margin:0;text-align:center}.product-video{display:block;width:100%;max-width:360px;height:auto;max-height:640px;aspect-ratio:9/16;object-fit:contain;margin-inline:auto;background:#080b07;border:1px solid #565e3d;border-radius:12px}.video-frame figcaption{margin-top:10px;font-size:.75rem;color:#b5bdab}.video-section .section-heading p+p{margin-top:18px}.video-watch{padding-top:28px}.video-watch h1{margin-bottom:20px}.video-watch .product-video{max-height:62vh;width:auto;max-width:100%}@media(min-width:860px){.video-layout{grid-template-columns:1fr 1fr;gap:48px}}
+
+/* Selaras dengan beranda: zaitun, emas, tombol krem, merek Barlow. */
+:root{--bg:#1c2b1b;--panel:#243324;--panel2:#2b3b2a;--line:#3a4b37;--gold:#d8bd84;--gold2:#d8bd84}
+body{background:#1c2b1b}
+.site-header{background:#1c2b1bf2;border-bottom:1px solid #ffffff17}
+.brand{font:800 28px/.9 var(--display);letter-spacing:.02em}
+.brand-accent{color:#d8bd84}
+.brand small{font:400 10px/1 Arial,sans-serif;letter-spacing:.21em;color:#c1c7b4;margin-top:8px}
+.button-primary{background:#f5f2e9;color:#1d2b1c;border:1px solid #f5f2e9;border-radius:6px;box-shadow:none;font-weight:700}
+.button-primary:hover{background:#fff}
+.contact-box{background:#243324;border-color:#3a4b37}
+.footer-links a{display:inline-block;padding:11px 2px}
+.back-link{padding:11px 0}
+.footer-content small{font-size:.75rem}

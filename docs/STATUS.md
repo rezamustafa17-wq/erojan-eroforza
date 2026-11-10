@@ -1,5 +1,13 @@
 # Status proyek EROJAN
 
+## Pembaruan 10 November 2026 (malam) — paket P0/P1 dari audit panjang, kenyamanan, konversi
+
+- Struktur beranda: bagian kepercayaan ("Anda beli di tempat yang terpercaya") naik ke tepat setelah hero; `#manfaat` dihapus; foto botol kedua disembunyikan di ponsel; CTA ketiga di bawah video. Tinggi ponsel turun dari 7.418 px ke sekitar 6.440 px (7,6 layar); CTA di isi halaman pertama kini di sekitar 2,5 layar (sebelumnya 5,8).
+- Keterbacaan: tombol utama 14 px, paragraf 15 px, lantai teks informasi 12 px (kecuali label merek dekoratif 10 px), tap target footer dan tautan kecil diperbesar, hero tablet dan tombol mengambang diperbaiki.
+- Kepatuhan: pemberitahuan mencolok "Baca aturan pakai, peringatan, dan perhatian pada label Indonesia" dengan NIE dan pendaftar OUS Nusantara Indonesia sebelum footer. Wording chip hero "Herbal Berstandar BPOM", label "TESTIMONI", dan surat pernyataan Tora masih menunggu keputusan pemilik.
+- Atribusi: `assets/wa-ref.js` menambahkan "(kode: X-Y)" di akhir pesan WhatsApp (X = G dari iklan Google, W lainnya; Y = posisi: H header, A hero, E kepercayaan, V video, O pemesanan, B bar mobile, F mengambang, T footer, L lain). Tidak memuat gclid. Event baru `faq_open`, `video_progress`, dan parameter `wa_ref` pada `whatsapp_click`.
+- Subhalaman: warna zaitun, "JAN" emas, tombol krem seperti beranda; `pemesanan.html` diselaraskan dengan gratis ongkir dan COD.
+
 ## Pembaruan 10 November 2026 (sore) — perbaikan konversi dan bounce
 
 - Hasil kritik `impeccable` (skor 26/32) dieksekusi kecuali harga: harga tetap tidak ditampilkan, pemesanan lewat WhatsApp.

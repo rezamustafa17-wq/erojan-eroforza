@@ -13,6 +13,7 @@ function setup({host='eroforza.com',config=ids, oldChoice, deniedStorage=false, 
     head:{appendChild:node=>nodes.push(node)},
     getElementById:id=>nodes.find(node=>node.id===id),
     createElement:tag=>({tag}),
+    querySelectorAll:()=>[],
     addEventListener:(name,handler)=>(docListeners[name]??=[]).push(handler),
     dispatchEvent:event=>(docListeners[event.type]||[]).forEach(fn=>fn(event)), cookie:''};
   let tick = 10;
@@ -66,5 +67,26 @@ test('production host and www subdomain load tags',()=>{
 });
 test('missing IDs/partial Ads config never load tags',()=>{
   for(const config of [{},{googleAdsConversionId:'AW-123456'}]){const s=setup({config});s.click();assert.equal(s.nodes.length,0);assert.equal(s.events().length,0);}
+});
+
+const waRefSource = readFileSync('assets/wa-ref.js', 'utf8');
+function waSetup(search, links) {
+  const anchors = links.map(l => { const attrs = {href: l.href}; return {id: l.id || '', dataset: {}, getAttribute: k => attrs[k], setAttribute: (k, v) => { attrs[k] = v; }, closest: sel => (l.in || []).includes(sel) ? {} : null, attrs}; });
+  const context = {URLSearchParams, encodeURIComponent, decodeURIComponent, location: {search},
+    document: {querySelectorAll: () => anchors}};
+  vm.runInNewContext(waRefSource, context);
+  return anchors;
+}
+test('wa-ref appends a source/placement code without leaking click ids',()=>{
+  const base='https://wa.me/6281391939099';
+  const [hero,bare,bar]=waSetup('?gclid=SECRET123&utm_source=google',[
+    {href:base+'?text='+encodeURIComponent('Halo Eza'),in:['.hero']},{href:base,in:['footer']},{href:base+'?text=x',in:['.mobile-order']}]);
+  const heroText=decodeURIComponent(hero.attrs.href.split('text=')[1]);
+  assert.ok(heroText.endsWith('(kode: G-A)'));assert.equal(hero.dataset.waRef,'G-A');
+  assert.ok(decodeURIComponent(bare.attrs.href.split('text=')[1]).includes('Jumlah botol'));assert.equal(bare.dataset.waRef,'G-T');
+  assert.equal(bar.dataset.waRef,'G-B');
+  assert.ok(!hero.attrs.href.includes('SECRET123'));assert.ok(!hero.attrs.href.includes('+'));
+  const [organic]=waSetup('',[{href:base,in:['#kenapa-eza']}]);assert.equal(organic.dataset.waRef,'W-E');
+  const again=waSetup('',[{href:organic.attrs.href,in:[]}]);assert.ok(decodeURIComponent(again[0].attrs.href).match(/\(kode: W-E\)/g).length===1);
 });
 console.log(`${passed} skenario pengukuran lulus; tanpa permintaan eksternal.`);

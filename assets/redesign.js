@@ -53,3 +53,16 @@
     root.classList.toggle('show-sticky', passed);
   }, {threshold: 0}).observe(cta);
 })();
+
+// Tombol mengambang disembunyikan saat bagian yang sudah memuat CTA sendiri terlihat, agar tidak menutupi teks.
+(() => {
+  if (!('IntersectionObserver' in window)) return;
+  const targets = [document.getElementById('pemesanan'), document.getElementById('kenapa-eza')].filter(Boolean);
+  if (!targets.length) return;
+  const visible = new Set();
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => e.isIntersecting ? visible.add(e.target.id) : visible.delete(e.target.id));
+    document.documentElement.classList.toggle('float-hidden', visible.size > 0);
+  }, {threshold: 0.25});
+  targets.forEach(t => io.observe(t));
+})();

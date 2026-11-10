@@ -46,6 +46,14 @@
   const track = (name, params) => { if (ga4 && consent.getState().analytics) window.gtag('event', name, {...params, send_to: ga4}); };
   const video = document.getElementById('product-video');
   if (video) video.addEventListener('play', () => track('video_play', {video_title: 'Tora Sudiro'}), {once: true});
+  if (video) {
+    let half = false;
+    video.addEventListener('timeupdate', () => { if (!half && video.duration > 0 && video.currentTime / video.duration >= 0.5) { half = true; track('video_progress', {percent: 50}); } });
+    video.addEventListener('ended', () => track('video_progress', {percent: 100}), {once: true});
+  }
+  document.querySelectorAll('.faq-list details').forEach(item => item.addEventListener('toggle', () => {
+    if (item.open) track('faq_open', {question: (item.querySelector('summary')?.textContent || '').trim().slice(0, 80)});
+  }));
   if (typeof window.addEventListener === 'function') {
     const marks = [25, 50, 75, 90], seen = new Set();
     window.addEventListener('scroll', () => {
@@ -67,14 +75,14 @@
     if (destination.protocol !== 'https:' || destination.hostname !== 'wa.me' || destination.pathname !== '/6281391939099') return;
     const now = performance.now(); if (now - lastClick < 1000) return; lastClick = now;
     const section = anchor.closest('section[id]');
-    const allowed = ['atas', 'manfaat', 'video', 'komposisi', 'keseharian', 'tentang', 'legalitas', 'faq', 'pemesanan', 'tanya-eza'];
+    const allowed = ['atas', 'kenapa-eza', 'manfaat', 'video', 'komposisi', 'keseharian', 'tentang', 'legalitas', 'faq', 'pemesanan', 'tanya-eza'];
     let placement = section && allowed.includes(section.id) ? section.id : 'page';
     if (anchor.id === 'waFloat' || anchor.closest('.mobile-order')) placement = 'floating';
     else if (anchor.closest('header')) placement = 'header';
     else if (anchor.closest('footer')) placement = 'footer';
     else if (anchor.closest('#chatCard')) placement = 'chat';
     const params = {page_location: locationFor(state), page_referrer: '', transport_type: 'beacon'};
-    if (ga4 && (advanced || state.analytics)) window.gtag('event', 'whatsapp_click', {...params, send_to: ga4, cta_location: placement});
+    if (ga4 && (advanced || state.analytics)) window.gtag('event', 'whatsapp_click', {...params, send_to: ga4, cta_location: placement, wa_ref: anchor.dataset?.waRef || ''});
     if (ads && label && (advanced || state.advertising)) window.gtag('event', 'conversion', {...params, send_to: ads + '/' + label, value: 0, currency: 'IDR'});
     // Native navigation is immediate. No preventDefault, timer, or automatic conversion.
   });
