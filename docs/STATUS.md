@@ -1,5 +1,11 @@
 # Status proyek EROJAN
 
+## Pembaruan 10 November 2026 (malam) — GA4 dan perbaikan teknis
+
+- GA4: empat dimensi kustom berlingkup peristiwa didaftarkan: Kode sumber WA (`wa_ref`), Posisi CTA (`cta_location`), Persen scroll atau video (`percent`), Pertanyaan FAQ (`question`). Data baru muncul di laporan setelah 24-48 jam. Eksplorasi "EROJAN - Konversi dan Bounce Rate" (bentuk bebas, 28 hari): baris halaman landing dan sumber/media, kolom kategori perangkat, nilai pengguna aktif, sesi, rasio pentalan, rasio engagement, waktu interaksi rata-rata, rasio peristiwa utama sesi, jumlah peristiwa.
+- Situs: preload dua font Barlow, preconnect ke Google Tag Manager dan Analytics, nomor WhatsApp terlihat di baris hero, dan `404.html` bermerek (noindex) dengan tombol kembali dan WhatsApp.
+- Ukuran produksi (jaringan sandbox, bukan skor resmi): CLS 0, LCP 2,66 detik (elemen H1), 776 KB dalam 24 permintaan.
+
 ## Pembaruan 10 November 2026 (malam) — carousel testimoni otomatis
 
 - `#kabar` kini bergeser otomatis pelan (28 px/detik, loop mulus dengan salinan kartu). Berhenti saat disentuh, di-hover, atau difokus keyboard; lanjut 3,5 detik setelah pengguna berhenti; berhenti saat bagian tidak terlihat atau tab tersembunyi. Tetap bisa digeser manual. Tombol "Jeda geser otomatis" tersedia (aksesibilitas), dan `prefers-reduced-motion` menonaktifkan geser otomatis sejak awal. Logika di `assets/redesign.js`.

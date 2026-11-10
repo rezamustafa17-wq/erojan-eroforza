@@ -17,7 +17,7 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / 'dist'
 PAGES = ['index.html', 'tentang.html', 'pemesanan.html', 'kebijakan-privasi.html', 'ketentuan.html', 'video.html']
-FILES = PAGES + ['favicon.svg', 'CNAME', '.nojekyll', 'robots.txt', 'sitemap.xml', 'llms.txt']
+FILES = PAGES + ['favicon.svg', 'CNAME', '.nojekyll', 'robots.txt', 'sitemap.xml', 'llms.txt', '404.html']
 DIRECTORIES = ['assets']
 
 
