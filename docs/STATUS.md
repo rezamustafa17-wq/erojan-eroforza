@@ -1,5 +1,9 @@
 # Status proyek EROJAN
 
+## Pembaruan 10 November 2026 (malam) — carousel testimoni otomatis
+
+- `#kabar` kini bergeser otomatis pelan (28 px/detik, loop mulus dengan salinan kartu). Berhenti saat disentuh, di-hover, atau difokus keyboard; lanjut 3,5 detik setelah pengguna berhenti; berhenti saat bagian tidak terlihat atau tab tersembunyi. Tetap bisa digeser manual. Tombol "Jeda geser otomatis" tersedia (aksesibilitas), dan `prefers-reduced-motion` menonaktifkan geser otomatis sejak awal. Logika di `assets/redesign.js`.
+
 ## Pembaruan 10 November 2026 (malam, testimoni) — section "Kabar dari pelanggan"
 
 - Tujuh Story testimoni dipetakan di docs/TESTIMONI-EROJAN-2026-11-10.md. Terpasang lima (carousel `#kabar`): kabar pengiriman 03 dan kutipan 06, 07, 01, 05 atas keputusan eksplisit pemilik setelah risiko dijelaskan. Aset 02 dan 04 ditahan.
