@@ -1,5 +1,12 @@
 # Status proyek EROJAN
 
+## Pembaruan 10 November 2026 (siang) — SEO/GEO/AIO dan akun Google
+
+- Situs: JSON-LD FAQPage dan Product (tanpa harga) di beranda, BreadcrumbList serta OG/Twitter di halaman lain, `llms.txt`, aturan crawler AI di `robots.txt`, `lastmod` sitemap diperbarui. Teks dan desain tidak berubah. Commit 450ba06 di main.
+- GA4: `whatsapp_click` ditandai peristiwa utama; properti ditautkan ke Search Console; anotasi "Banner privasi dihapus" tertanggal 10 Nov 2026.
+- Search Console: sitemap dibaca 10 Nov (6 halaman, 1 video); pengindeksan diminta untuk beranda, video.html, pemesanan.html.
+- Google Ads: anggaran akun Rp6.000.000, terpakai Rp4.999.050 (83%); tidak diubah. Hasil konversi klik keluar 0 sebelum banner dihapus. Cloudflare: DNS-only ke GitHub Pages, tidak diubah.
+
 ## Pembaruan 10 November 2026 — banner privasi dihapus
 
 - Banner/panel privasi dan tombol "Pengaturan pengukuran" dihapus dari enam halaman karena menaikkan bounce rate dan menurunkan konversi. `measurement-ui.js` dan `measurement.css` dihapus.
