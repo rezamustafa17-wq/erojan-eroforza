@@ -1,5 +1,9 @@
 # Konten dan sumber produk
 
+## Keputusan wording BPOM — 10 November 2026
+
+Pemilik memilih chip hero "Herbal Berstandar BPOM" (dengan nomor izin edar TI223079121, tanpa tautan) dan menolak usulan "Obat Tradisional · Terdaftar BPOM". Audit mencatat risiko: kategori registrasi di portal BPOM adalah Obat Tradisional, sedangkan "Obat Herbal Terstandar" adalah kategori lain. Kategori terdaftar tetap tertulis di kalimat pembuka hero, FAQ, footer, pita aturan pakai, dan data terstruktur. Tinjau ulang bila ada teguran BPOM atau penolakan iklan Google.
+
 ## Ketentuan komersial dari pemilik — 10 November 2026
 
 Pemilik mengonfirmasi di chat: chat WhatsApp Eza dilayani 24 jam; paket dikemas rapat tanpa keterangan isi; pembayaran bisa COD dan paket bisa dicek dulu sebelum dibayar; gratis ongkir (100%). Ini ketentuan penjualan, bukan klaim kesehatan, dan sudah dipasang di beranda, pemesanan, ketentuan, FAQ, llms.txt. Jika ada pengecualian (area, minimum pesanan, jam), ubah semua tempat tersebut dan materi iklan. Materi iklan harus selaras; ini menggantikan penghapusan klaim gratis ongkir/COD pada 1 November yang dilakukan karena belum ada konfirmasi.
