@@ -1,5 +1,11 @@
 # Status proyek EROJAN
 
+## Pembaruan 10 November 2026 (malam) — hero baru, anchor, section sertifikat BPOM
+
+- Hero: di ponsel botol kini di atas (utuh di layar pertama, y 79-319 dari 844), lalu H1, tombol WhatsApp (y 592-641), empat tombol anchor (Testimoni, Bahan, Sertifikat, Keaslian penjual) menuju `#testimoni`, `#komposisi`, `#sertifikat`, `#kenapa-eza`. Tombol "Tonton video" dihapus karena video dijangkau lewat Testimoni. Header ponsel 56 px. Di desktop poin keyakinan dua kolom.
+- Section baru `#sertifikat` (Sertifikat BPOM EROJAN): NIE TI223079121, kategori Obat Tradisional, botol 60 kapsul, kegunaan, pendaftar OUS Nusantara Indonesia, produsen MOH Pharmaceutical Technologies Sdn. Bhd., tombol Cek BPOM dan tautan BPJPH. Siap menerima galeri gambar sertifikat (komentar HTML di dalam section; tambahkan class `has-gallery` pada `.sertifikat-grid`; berkas di `assets/sertifikat/`).
+- Urutan section: hero, fakta, keaslian penjual, sertifikat, testimoni video, kabar pelanggan, bahan, pemesanan, FAQ. Di ponsel pemutar video dinaikkan tepat di bawah judul.
+
 ## Pembaruan 10 November 2026 (malam) — GA4 dan perbaikan teknis
 
 - GA4: empat dimensi kustom berlingkup peristiwa didaftarkan: Kode sumber WA (`wa_ref`), Posisi CTA (`cta_location`), Persen scroll atau video (`percent`), Pertanyaan FAQ (`question`). Data baru muncul di laporan setelah 24-48 jam. Eksplorasi "EROJAN - Konversi dan Bounce Rate" (bentuk bebas, 28 hari): baris halaman landing dan sumber/media, kolom kategori perangkat, nilai pengguna aktif, sesi, rasio pentalan, rasio engagement, waktu interaksi rata-rata, rasio peristiwa utama sesi, jumlah peristiwa.

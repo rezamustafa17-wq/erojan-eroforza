@@ -12,6 +12,7 @@
 
 ## Halaman utama
 - [Beranda: informasi produk dan komposisi](https://eroforza.com/): ringkasan produk, bahan, legalitas, dan tanya jawab.
+- [Sertifikat BPOM dan data registrasi](https://eroforza.com/#sertifikat): NIE, kategori, kemasan, kegunaan terdaftar, pendaftar, dan produsen.
 - [Pemesanan](https://eroforza.com/pemesanan.html): cara menanyakan harga dan stok lewat WhatsApp serta memastikan rincian pesanan.
 - [Video](https://eroforza.com/video.html): video pengalaman pribadi Tora Sudiro; hasil tiap orang tidak dijamin sama.
 - [Tentang Eza](https://eroforza.com/tentang.html): pengelola situs dan kontak.
