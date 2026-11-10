@@ -15,8 +15,7 @@
 /* Pilihan pengukuran yang sudah digunakan situs, disesuaikan dengan desain baru. */
 
 /* Konversi: bukti kepercayaan di layar pertama, CTA mobile lebih fokus, teks lebih terbaca. */
-.hero-proof{display:inline-flex;align-items:center;gap:12px;margin:0 0 20px;padding:11px 16px 11px 13px;border:1px solid #d8bd8466;border-radius:6px;color:var(--paper);background:#ffffff0a;transition:border-color .2s}
-.hero-proof:hover{border-color:var(--gold)}
+.hero-proof{display:inline-flex;align-items:center;gap:12px;margin:0 0 20px;padding:11px 16px 11px 13px;border:1px solid #d8bd8466;border-radius:6px;color:var(--paper);background:#ffffff0a}
 .hero-proof .icon{color:var(--gold);width:24px;height:24px}
 .hero-proof span{font:700 13px/1.35 Arial,sans-serif}
 .hero-proof small{display:block;font:400 12px/1.4 Arial,sans-serif;color:#cfd6c2;margin-top:2px}
@@ -50,3 +49,4 @@
 .assurance-list li{font-size:14px}
 .kicker{font-size:10px}
 }
+.assurance-lead{font-size:15px;line-height:1.6;color:var(--muted);margin:0 0 20px;max-width:520px}
