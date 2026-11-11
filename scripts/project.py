@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / 'dist'
 PAGES = ['index.html', 'tentang.html', 'pemesanan.html', 'kebijakan-privasi.html', 'ketentuan.html', 'video.html']
 FILES = PAGES + ['favicon.svg', 'CNAME', '.nojekyll', 'robots.txt', 'sitemap.xml', 'llms.txt', '404.html']
-DIRECTORIES = ['assets', 'uji']
+DIRECTORIES = ['assets', 'erojan']
 
 
 def media():
@@ -71,7 +71,7 @@ UJI_BANNED = re.compile(r'horny|goat\s*weed|tongkat|epimedium|eurycoma|\bmaca\b|
 
 
 def check_uji():
-    errors, base = [], ROOT / 'uji'
+    errors, base = [], ROOT / 'erojan'
     if not base.is_dir(): return errors
     for path in sorted(base.glob('*/index.html')):
         rel = path.relative_to(ROOT).as_posix()
@@ -95,7 +95,7 @@ def check_uji():
             target = ROOT / unquote(u.path).lstrip('/') if u.path.startswith('/') else (path.parent / unquote(u.path)).resolve()
             if target.is_dir(): target = target / 'index.html'
             if ROOT not in target.parents or not target.is_file(): errors.append(rel + ': aset tidak ditemukan: ' + ref)
-    if 'eroforza.com/uji' in (ROOT / 'sitemap.xml').read_text(): errors.append('sitemap.xml tidak boleh memuat halaman uji')
+    if 'eroforza.com/erojan' in (ROOT / 'sitemap.xml').read_text(): errors.append('sitemap.xml tidak boleh memuat halaman uji')
     return errors
 
 
@@ -171,7 +171,7 @@ def check():
         if b'ftyp' not in f.read(64): errors.append('Video lokal bukan kontainer MP4 yang dikenal')
     errors.extend(check_uji())
     if errors: raise ValueError('\n'.join(errors))
-    print('LULUS: enam halaman, canonical, anchor, aset, ikon, JSON-LD, sitemap, WhatsApp, dan arsip video; halaman uji: ' + str(len(list((ROOT / 'uji').glob('*/index.html')))) + '.')
+    print('LULUS: enam halaman, canonical, anchor, aset, ikon, JSON-LD, sitemap, WhatsApp, dan arsip video; halaman uji: ' + str(len(list((ROOT / 'erojan').glob('*/index.html')))) + '.')
 
 
 def build():
