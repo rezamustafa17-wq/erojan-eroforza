@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / 'dist'
 PAGES = ['index.html', 'tentang.html', 'pemesanan.html', 'kebijakan-privasi.html', 'ketentuan.html', 'video.html']
 FILES = PAGES + ['favicon.svg', 'CNAME', '.nojekyll', 'robots.txt', 'sitemap.xml', 'llms.txt', '404.html']
-DIRECTORIES = ['assets']
+DIRECTORIES = ['assets', 'erojan']
 
 
 def media():
@@ -63,6 +63,40 @@ class Page(HTMLParser):
 
     def handle_endtag(self, tag):
         if tag == 'script': self.json_active = False
+
+
+# Halaman uji status kebijakan Google Ads (docs/UJI-KEBIJAKAN-ADS.md): tidak masuk sitemap, wajib noindex,
+# dan tidak boleh memuat nama bahan yang sedang diuji.
+UJI_BANNED = re.compile(r'horny|goat\s*weed|tongkat|epimedium|eurycoma|\bmaca\b|butea|tribulus|cuscuta|lepidium', re.I)
+
+
+def check_uji():
+    errors, base = [], ROOT / 'erojan'
+    if not base.is_dir(): return errors
+    for path in sorted(base.glob('*/index.html')):
+        rel = path.relative_to(ROOT).as_posix()
+        text = path.read_text()
+        page = Page()
+        page.feed(text)
+        errors.extend(rel + ': ' + e for e in page.errors)
+        if page.h1 != 1: errors.append(rel + ': harus memiliki satu H1')
+        if not re.search(r'<meta[^>]+name="robots"[^>]+content="[^"]*noindex', text): errors.append(rel + ': wajib noindex')
+        if UJI_BANNED.search(text): errors.append(rel + ': memuat nama bahan yang sedang diuji')
+        if set(re.findall(r'wa\.me/(\d+)', text)) != {'6281391939099'}: errors.append(rel + ': nomor WhatsApp tidak sesuai')
+        canonical = 'https://eroforza.com/' + path.parent.relative_to(ROOT).as_posix() + '/'
+        if not re.search(r'rel="canonical"\s+href="' + re.escape(canonical) + r'"', text): errors.append(rel + ': canonical tidak sesuai')
+        for part in page.json_parts: json.loads(part)
+        for ref in page.refs:
+            u = urlsplit(ref)
+            if u.scheme or u.netloc: continue
+            if not u.path:
+                if u.fragment and u.fragment not in page.ids: errors.append(rel + ': anchor tidak ditemukan: ' + ref)
+                continue
+            target = ROOT / unquote(u.path).lstrip('/') if u.path.startswith('/') else (path.parent / unquote(u.path)).resolve()
+            if target.is_dir(): target = target / 'index.html'
+            if ROOT not in target.parents or not target.is_file(): errors.append(rel + ': aset tidak ditemukan: ' + ref)
+    if 'eroforza.com/erojan' in (ROOT / 'sitemap.xml').read_text(): errors.append('sitemap.xml tidak boleh memuat halaman uji')
+    return errors
 
 
 def check():
@@ -135,8 +169,9 @@ def check():
     video = ROOT / data['localVideo']
     with video.open('rb') as f:
         if b'ftyp' not in f.read(64): errors.append('Video lokal bukan kontainer MP4 yang dikenal')
+    errors.extend(check_uji())
     if errors: raise ValueError('\n'.join(errors))
-    print('LULUS: enam halaman, canonical, anchor, aset, ikon, JSON-LD, sitemap, WhatsApp, dan arsip video.')
+    print('LULUS: enam halaman, canonical, anchor, aset, ikon, JSON-LD, sitemap, WhatsApp, dan arsip video; halaman uji: ' + str(len(list((ROOT / 'erojan').glob('*/index.html')))) + '.')
 
 
 def build():
