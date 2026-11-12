@@ -83,7 +83,7 @@ test('wa-ref appends a source/placement code without leaking click ids',()=>{
     {href:base+'?text='+encodeURIComponent('Halo Eza'),in:['.hero']},{href:base,in:['footer']},{href:base+'?text=x',in:['.mobile-order']}]);
   const heroText=decodeURIComponent(hero.attrs.href.split('text=')[1]);
   assert.ok(heroText.endsWith('(kode: G-A)'));assert.equal(hero.dataset.waRef,'G-A');
-  assert.ok(decodeURIComponent(bare.attrs.href.split('text=')[1]).includes('Jumlah botol'));assert.equal(bare.dataset.waRef,'G-T');
+  assert.ok(decodeURIComponent(bare.attrs.href.split('text=')[1]).includes('manfaat EROJAN')&&decodeURIComponent(bare.attrs.href.split('text=')[1]).includes('Alamat pengiriman saya:'));assert.equal(bare.dataset.waRef,'G-T');
   assert.equal(bar.dataset.waRef,'G-B');
   assert.ok(!hero.attrs.href.includes('SECRET123'));assert.ok(!hero.attrs.href.includes('+'));
   const [organic]=waSetup('',[{href:base,in:['#kenapa-eza']}]);assert.equal(organic.dataset.waRef,'W-E');
