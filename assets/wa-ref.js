@@ -22,7 +22,7 @@
   const place = a => a.id === 'waFloat' ? 'F' : a.closest('.mobile-order') ? 'B' : a.closest('header') ? 'H' :
     a.closest('footer') ? 'T' : a.closest('.hero') ? 'A' : a.closest('#kenapa-eza') ? 'E' : a.closest('#video') ? 'V' : a.closest('#kabar') ? 'K' :
     a.closest('#pemesanan') ? 'O' : 'L';
-  // Tombol paket (mis. "Tanya harga paket 2 botol") mempertahankan jumlah botolnya.
+  // Tombol paket (mis. "Minta info paket 2 botol") mempertahankan jumlah botolnya.
   const compose = (pos, text) => {
     const pack = /paket (\d+) botol/i.exec(text);
     if (pack) return 'Halo Eza, saya mau tahu manfaat EROJAN 60 kapsul dan paket ' + pack[1] + ' botolnya. ' + MORE + ' ' + SOURCE;
