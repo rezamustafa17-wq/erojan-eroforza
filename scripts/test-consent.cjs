@@ -72,6 +72,8 @@ test('missing IDs/partial Ads config never load tags',()=>{
 test('AdCuan redirect link is tracked like a WhatsApp click; other adcuan paths are not',()=>{
   const s=setup();s.click('https://plus.adcuan.com/ctawa/1057-1');assert.equal(s.events('whatsapp_click').length,1);assert.equal(s.events('conversion').length,1);
   const o=setup();o.click('https://plus.adcuan.com/ctawa/9999-1');o.click('https://plus.adcuan.com/login');assert.equal(o.events('whatsapp_click').length,0);
+  const a=setup();a.click('https://api.whatsapp.com/send?phone=6289682110081&text=Halo');assert.equal(a.events('whatsapp_click').length,1);assert.equal(a.events('conversion').length,1);
+  const b=setup();b.click('https://api.whatsapp.com/send?phone=6281391939099&text=Halo');b.click('https://api.whatsapp.com/other?phone=6289682110081');assert.equal(b.events('whatsapp_click').length,0);
 });
 
 const waRefSource = readFileSync('assets/wa-ref.js', 'utf8');
