@@ -72,7 +72,9 @@
     if (!advanced && !state.analytics && !state.advertising) return;
     let destination;
     try { destination = new URL(anchor.href); } catch (_) { return; }
-    if (destination.protocol !== 'https:' || destination.hostname !== 'wa.me' || destination.pathname !== '/6289682110081') return;
+    const isWa = destination.hostname === 'wa.me' && destination.pathname === '/6289682110081';
+    const isCta = destination.hostname === 'plus.adcuan.com' && destination.pathname === '/ctawa/1057-1';
+    if (destination.protocol !== 'https:' || !(isWa || isCta)) return;
     const now = performance.now(); if (now - lastClick < 1000) return; lastClick = now;
     const section = anchor.closest('section[id]');
     const allowed = ['atas', 'kenapa-eza', 'manfaat', 'video', 'kabar', 'komposisi', 'keseharian', 'tentang', 'legalitas', 'faq', 'pemesanan', 'tanya-eza'];

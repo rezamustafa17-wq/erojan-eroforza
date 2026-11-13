@@ -69,6 +69,11 @@ test('missing IDs/partial Ads config never load tags',()=>{
   for(const config of [{},{googleAdsConversionId:'AW-123456'}]){const s=setup({config});s.click();assert.equal(s.nodes.length,0);assert.equal(s.events().length,0);}
 });
 
+test('AdCuan redirect link is tracked like a WhatsApp click; other adcuan paths are not',()=>{
+  const s=setup();s.click('https://plus.adcuan.com/ctawa/1057-1');assert.equal(s.events('whatsapp_click').length,1);assert.equal(s.events('conversion').length,1);
+  const o=setup();o.click('https://plus.adcuan.com/ctawa/9999-1');o.click('https://plus.adcuan.com/login');assert.equal(o.events('whatsapp_click').length,0);
+});
+
 const waRefSource = readFileSync('assets/wa-ref.js', 'utf8');
 function waSetup(search, links) {
   const anchors = links.map(l => { const attrs = {href: l.href}; return {id: l.id || '', dataset: {}, getAttribute: k => attrs[k], setAttribute: (k, v) => { attrs[k] = v; }, closest: sel => (l.in || []).includes(sel) ? {} : null, attrs}; });
