@@ -65,8 +65,9 @@
   }
   document.addEventListener('erojan:consent', synchronize);
   synchronize();
-  document.addEventListener('click', event => {
-    const anchor = event.target.closest('a[href]');
+  // Fase capture di window: AdCuan+ mengambil alih klik tombol WhatsApp dan bisa menghentikan perambatan event.
+  (typeof window.addEventListener === 'function' ? window : document).addEventListener('click', event => {
+    const anchor = event.target && event.target.closest ? event.target.closest('a[href]') : null;
     if (!anchor) return;
     const state = consent.getState();
     if (!advanced && !state.analytics && !state.advertising) return;
@@ -89,5 +90,5 @@
     if (ga4 && (advanced || state.analytics)) window.gtag('event', 'whatsapp_click', {...params, send_to: ga4, cta_location: placement, wa_ref: anchor.dataset?.waRef || ''});
     if (ads && label && (advanced || state.advertising)) window.gtag('event', 'conversion', {...params, send_to: ads + '/' + label, value: 0, currency: 'IDR'});
     // Native navigation is immediate. No preventDefault, timer, or automatic conversion.
-  });
+  }, true);
 })();
