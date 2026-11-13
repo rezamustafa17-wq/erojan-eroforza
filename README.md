@@ -2,7 +2,7 @@
 
 Folder kerja lokal untuk website informasi EROJAN milik Eza. Kode dan riwayat Git dipulihkan pada 26 Oktober 2026 dari [repositori EROJAN](https://github.com/rezamustafa17-wq/erojan-eroforza), commit dasar `c299d62`.
 
-Website berupa HTML, CSS, dan JavaScript statis. Tidak memerlukan pemasangan paket tambahan. Alamat yang tercatat di `CNAME`: https://eroforza.com/. Kontak pada versi terakhir GitHub: **0813-9193-9099**.
+Website berupa HTML, CSS, dan JavaScript statis. Tidak memerlukan pemasangan paket tambahan. Alamat yang tercatat di `CNAME`: https://eroforza.com/. Kontak pada versi terakhir GitHub: **0896-8211-0081**.
 
 ## Hasil terbaru
 

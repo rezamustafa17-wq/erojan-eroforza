@@ -82,7 +82,7 @@ def check_uji():
         if page.h1 != 1: errors.append(rel + ': harus memiliki satu H1')
         if not re.search(r'<meta[^>]+name="robots"[^>]+content="[^"]*noindex', text): errors.append(rel + ': wajib noindex')
         if UJI_BANNED.search(text): errors.append(rel + ': memuat nama bahan yang sedang diuji')
-        if set(re.findall(r'wa\.me/(\d+)', text)) != {'6281391939099'}: errors.append(rel + ': nomor WhatsApp tidak sesuai')
+        if set(re.findall(r'wa\.me/(\d+)', text)) != {'6289682110081'}: errors.append(rel + ': nomor WhatsApp tidak sesuai')
         canonical = 'https://eroforza.com/' + path.parent.relative_to(ROOT).as_posix() + '/'
         if not re.search(r'rel="canonical"\s+href="' + re.escape(canonical) + r'"', text): errors.append(rel + ': canonical tidak sesuai')
         for part in page.json_parts: json.loads(part)
@@ -116,7 +116,7 @@ def check():
         if not re.search(r'rel="canonical"\s+href="' + re.escape(canonical) + r'"', text):
             errors.append(name + ': canonical tidak sesuai')
         if re.search(r'<meta[^>]+content="[^"]*noindex', text): errors.append(name + ': tidak boleh noindex')
-        if set(re.findall(r'wa\.me/(\d+)', text)) != {'6281391939099'}:
+        if set(re.findall(r'wa\.me/(\d+)', text)) != {'6289682110081'}:
             errors.append(name + ': nomor WhatsApp tidak sesuai')
         for part in page.json_parts: json.loads(part)
     for name, page in pages.items():

@@ -289,3 +289,5 @@ Permintaan terbaru mengoreksi pemisahan tampilan: animasi percakapan harus tetap
 - Bukti pembacaan tersimpan lokal di `.local-state/audit-2026-10-26/` dan tidak masuk Git.
 
 - 2026-11-13: kata "Obat Tradisional" di halaman publik diganti "Suplemen" atas permintaan pemilik; teks pengantar section Kabar dari pelanggan dihapus (tersisa catatan "Pengalaman setiap orang dapat berbeda.").
+
+- 2026-11-13: nomor WhatsApp diganti ke 6289682110081 (0896-8211-0081); kata "Eza" pada tombol/kontak WhatsApp diganti "kami". Integrasi AdCuan+ ditahan di branch `adcuan-ditahan` (belum dirilis).

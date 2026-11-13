@@ -3,16 +3,16 @@
 // Pesan menanyakan manfaat EROJAN, harga, dan stok, dengan satu kolom alamat yang diisi pengirim sebelum mengirim.
 (() => {
   'use strict';
-  const BASE = 'https://wa.me/6281391939099';
+  const BASE = 'https://wa.me/6289682110081';
   const MORE = 'Boleh sekalian info harga dan stoknya?';
   const SOURCE = 'Saya lihat dari website eroforza.com.';
   const ADDRESS = '\n\nAlamat pengiriman saya: ';
   // Pesan per posisi tombol. Kunci mengikuti kode posisi di bawah.
-  const GENERAL = 'Halo Eza, saya mau tahu manfaat EROJAN 60 kapsul. ' + MORE + ' ' + SOURCE;
+  const GENERAL = 'Halo, saya mau tahu manfaat EROJAN 60 kapsul. ' + MORE + ' ' + SOURCE;
   const MESSAGE = {
-    E: 'Halo Eza, saya mau tahu manfaat EROJAN 60 kapsul dan memastikan keaslian penjualnya. ' + MORE,
-    V: 'Halo Eza, saya habis nonton videonya dan mau tahu manfaat EROJAN 60 kapsul. ' + MORE,
-    K: 'Halo Eza, saya sudah lihat testimoninya dan mau tahu lebih jauh manfaat EROJAN 60 kapsul. ' + MORE
+    E: 'Halo, saya mau tahu manfaat EROJAN 60 kapsul dan memastikan keaslian penjualnya. ' + MORE,
+    V: 'Halo, saya habis nonton videonya dan mau tahu manfaat EROJAN 60 kapsul. ' + MORE,
+    K: 'Halo, saya sudah lihat testimoninya dan mau tahu lebih jauh manfaat EROJAN 60 kapsul. ' + MORE
   };
   let query;
   try { query = new URLSearchParams(location.search); } catch (_) { return; }
@@ -25,7 +25,7 @@
   // Tombol paket (mis. "Minta info paket 2 botol") mempertahankan jumlah botolnya.
   const compose = (pos, text) => {
     const pack = /paket (\d+) botol/i.exec(text);
-    if (pack) return 'Halo Eza, saya mau tahu manfaat EROJAN 60 kapsul dan paket ' + pack[1] + ' botolnya. ' + MORE + ' ' + SOURCE;
+    if (pack) return 'Halo, saya mau tahu manfaat EROJAN 60 kapsul dan paket ' + pack[1] + ' botolnya. ' + MORE + ' ' + SOURCE;
     return MESSAGE[pos] || GENERAL;
   };
   document.querySelectorAll('a[href^="' + BASE + '"]').forEach(a => {

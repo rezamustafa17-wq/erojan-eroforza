@@ -55,3 +55,6 @@ Portal BPOM saat eksekusi menampilkan Obat Tradisional, EROJAN TI223079121, Boto
 
 ## Keputusan pemilik — 13 November 2026
 Pemilik meminta semua kata "Obat Tradisional" di halaman publik (index.html, pemesanan.html, llms.txt, JSON-LD) diganti "Suplemen". Registrasi BPOM TI223079121 tetap tercatat sebagai Obat Tradisional di portal; risiko ketidakselarasan label/kategori (PerBPOM 34/2022, tinjauan iklan) sudah disampaikan kepada pemilik. Bila ada teguran, kembalikan dengan `git revert` commit perubahan ini. Di section Kabar dari pelanggan, teks pengantar dihapus; tersisa "Pengalaman setiap orang dapat berbeda."
+
+## Keputusan pemilik — 13 November 2026 (nomor WhatsApp)
+Nomor tujuan WhatsApp di situs diganti dari 6281391939099 (0813-9193-9099) menjadi **6289682110081 (0896-8211-0081)**. Tulisan "Eza" pada tombol, kontak, dan pesan WhatsApp diganti "kami" ("Tanya kami", "Chat kami, tanya dulu", "Halo, saya mau tahu…"). Identitas penjual (nama merek "oleh Eza", halaman Tentang Eza, foto Eza, JSON-LD Person) belum diubah. Iklan Meta dan konfigurasi AdCuan harus memakai nomor yang sama.
