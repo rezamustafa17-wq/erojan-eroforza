@@ -287,3 +287,5 @@ Permintaan terbaru mengoreksi pemisahan tampilan: animasi percakapan harus tetap
 - PageSpeed mobile memberi HTTP 429 akibat kuota; skor performa dan Core Web Vitals belum diukur.
 - Laporan: `AUDIT-GOOGLE-ADS-SEO-EROJAN-2026-10-26.md`. Rancangan keyword serta 15 judul dan 4 deskripsi: `EROJAN-ADS-KEYWORD-PLAN-2026-10-26.md`.
 - Bukti pembacaan tersimpan lokal di `.local-state/audit-2026-10-26/` dan tidak masuk Git.
+
+- 2026-11-13: kata "Obat Tradisional" di halaman publik diganti "Suplemen" atas permintaan pemilik; teks pengantar section Kabar dari pelanggan dihapus (tersisa catatan "Pengalaman setiap orang dapat berbeda.").

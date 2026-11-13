@@ -52,3 +52,6 @@ Rancangan kampanye lama disimpan sebagai referensi di `references/previous-sessi
 ## Verifikasi kategori dan harga 28 Oktober 2026
 
 Portal BPOM saat eksekusi menampilkan Obat Tradisional, EROJAN TI223079121, Botol @ 60 Kapsul, kegunaan Membantu memelihara stamina pria, pendaftar OUS NUSANTARA INDONESIA dan pabrik MOH PHARMACEUTICAL TECHNOLOGIES SDN. BHD. Kategori situs dikoreksi. Pemilik dalam instruksi aktif telah mengotorisasi harga Rp769.000/botol; ditampilkan dengan konfirmasi stok/ongkir/total. Ini memperbarui pembatasan historis harga di atas, tanpa menambah diskon atau klaim resmi. Label Indonesia seluruh sisi dan bukti klaim video tetap belum lengkap; campaign tidak diaktifkan. Lihat laporan eksekusi 28 Oktober.
+
+## Keputusan pemilik — 13 November 2026
+Pemilik meminta semua kata "Obat Tradisional" di halaman publik (index.html, pemesanan.html, llms.txt, JSON-LD) diganti "Suplemen". Registrasi BPOM TI223079121 tetap tercatat sebagai Obat Tradisional di portal; risiko ketidakselarasan label/kategori (PerBPOM 34/2022, tinjauan iklan) sudah disampaikan kepada pemilik. Bila ada teguran, kembalikan dengan `git revert` commit perubahan ini. Di section Kabar dari pelanggan, teks pengantar dihapus; tersisa "Pengalaman setiap orang dapat berbeda."
