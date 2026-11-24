@@ -26,7 +26,7 @@ function setup({host='eroforza.com',config=ids, oldChoice, deniedStorage=false, 
   vm.runInNewContext(trackingSource,context);
   const commands=()=>window.dataLayer.map(a=>Array.from(a));
   const events=name=>commands().filter(a=>a[0]==='event'&&(!name||a[1]===name));
-  const click=(href='https://wa.me/6289682110081?text=PRIVATE_CHAT',section='manfaat')=>{
+  const click=(href='https://wa.me/6281391939099?text=PRIVATE_CHAT',section='manfaat')=>{
     const anchor={href,id:'',closest:selector=>selector==='section[id]'?{id:section}:null};
     document.dispatchEvent({type:'click',target:{closest:()=>anchor}});
   };
@@ -44,7 +44,7 @@ test('page view fires immediately with one loader and no UI API',()=>{
   assert.equal(s.document.documentElement.dataset.measurementState,'granted');
 });
 test('WhatsApp click sends GA4 event and zero-value conversion once, with allowed params only',()=>{
-  const s=setup();s.click();s.click();s.advance(1001);s.click('https://wa.me/628000000000');s.click('http://wa.me/6289682110081');
+  const s=setup();s.click();s.click();s.advance(1001);s.click('https://wa.me/628000000000');s.click('http://wa.me/6281391939099');
   assert.equal(s.events('whatsapp_click').length,1);assert.equal(s.events('conversion').length,1);
   const c=s.events('conversion')[0][2];assert.equal(c.send_to,'AW-123456/TEST_LABEL');assert.equal(c.value,0);assert.equal(c.currency,'IDR');
   assert.equal(s.events('whatsapp_click')[0][2].cta_location,'manfaat');
@@ -72,8 +72,8 @@ test('missing IDs/partial Ads config never load tags',()=>{
 test('AdCuan redirect link is tracked like a WhatsApp click; other adcuan paths are not',()=>{
   const s=setup();s.click('https://plus.adcuan.com/ctawa/1057-1');assert.equal(s.events('whatsapp_click').length,1);assert.equal(s.events('conversion').length,1);
   const o=setup();o.click('https://plus.adcuan.com/ctawa/9999-1');o.click('https://plus.adcuan.com/login');assert.equal(o.events('whatsapp_click').length,0);
-  const a=setup();a.click('https://api.whatsapp.com/send?phone=6289682110081&text=Halo');assert.equal(a.events('whatsapp_click').length,1);assert.equal(a.events('conversion').length,1);
-  const b=setup();b.click('https://api.whatsapp.com/send?phone=6281391939099&text=Halo');b.click('https://api.whatsapp.com/other?phone=6289682110081');assert.equal(b.events('whatsapp_click').length,0);
+  const a=setup();a.click('https://api.whatsapp.com/send?phone=6281391939099&text=Halo');assert.equal(a.events('whatsapp_click').length,1);assert.equal(a.events('conversion').length,1);
+  const b=setup();b.click('https://api.whatsapp.com/send?phone=6289682110081&text=Halo');b.click('https://api.whatsapp.com/other?phone=6281391939099');assert.equal(b.events('whatsapp_click').length,0);
 });
 
 const waRefSource = readFileSync('assets/wa-ref.js', 'utf8');
@@ -85,7 +85,7 @@ function waSetup(search, links) {
   return anchors;
 }
 test('wa-ref appends a source/placement code without leaking click ids',()=>{
-  const base='https://wa.me/6289682110081';
+  const base='https://wa.me/6281391939099';
   const [hero,bare,bar]=waSetup('?gclid=SECRET123&utm_source=google',[
     {href:base+'?text='+encodeURIComponent('Halo'),in:['.hero']},{href:base,in:['footer']},{href:base+'?text=x',in:['.mobile-order']}]);
   const heroText=decodeURIComponent(hero.attrs.href.split('text=')[1]);

@@ -58,3 +58,6 @@ Pemilik meminta semua kata "Obat Tradisional" di halaman publik (index.html, pem
 
 ## Keputusan pemilik — 13 November 2026 (nomor WhatsApp)
 Nomor tujuan WhatsApp di situs diganti dari 6281391939099 (0813-9193-9099) menjadi **6289682110081 (0896-8211-0081)**. Tulisan "Eza" pada tombol, kontak, dan pesan WhatsApp diganti "kami" ("Tanya kami", "Chat kami, tanya dulu", "Halo, saya mau tahu…"). Identitas penjual (nama merek "oleh Eza", halaman Tentang Eza, foto Eza, JSON-LD Person) belum diubah. Iklan Meta dan konfigurasi AdCuan harus memakai nomor yang sama.
+
+## Keputusan pemilik — 24 November 2026 (nomor WhatsApp)
+Atas permintaan pemilik, nomor tujuan WhatsApp di situs dikembalikan dari 6289682110081 (0896-8211-0081) ke **6281391939099 (0813-9193-9099)**: tautan wa.me, teks kontak, JSON-LD, skrip AdCuan/pelacakan, dan pemeriksaan `scripts/project.py`. Nomor CS di AdCuan disamakan.

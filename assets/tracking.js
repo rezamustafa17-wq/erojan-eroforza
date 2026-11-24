@@ -73,9 +73,9 @@
     if (!advanced && !state.analytics && !state.advertising) return;
     let destination;
     try { destination = new URL(anchor.href); } catch (_) { return; }
-    const isWa = destination.hostname === 'wa.me' && destination.pathname === '/6289682110081';
+    const isWa = destination.hostname === 'wa.me' && destination.pathname === '/6281391939099';
     // AdCuan+ mengganti tautan wa.me menjadi api.whatsapp.com/send?phone=... dan menambah ID kunjungan.
-    const isApi = destination.hostname === 'api.whatsapp.com' && destination.pathname === '/send' && destination.searchParams.get('phone') === '6289682110081';
+    const isApi = destination.hostname === 'api.whatsapp.com' && destination.pathname === '/send' && destination.searchParams.get('phone') === '6281391939099';
     const isCta = destination.hostname === 'plus.adcuan.com' && destination.pathname === '/ctawa/1057-1';
     if (destination.protocol !== 'https:' || !(isWa || isApi || isCta)) return;
     const now = performance.now(); if (now - lastClick < 1000) return; lastClick = now;

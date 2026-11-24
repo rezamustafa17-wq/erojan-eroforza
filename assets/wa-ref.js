@@ -3,7 +3,7 @@
 // Pesan menanyakan manfaat EROJAN, harga, dan stok, dengan satu kolom alamat yang diisi pengirim sebelum mengirim.
 (() => {
   'use strict';
-  const BASE = 'https://wa.me/6289682110081';
+  const BASE = 'https://wa.me/6281391939099';
   const MORE = 'Boleh sekalian info harga dan stoknya?';
   const SOURCE = 'Saya lihat dari website eroforza.com.';
   const ADDRESS = '\n\nAlamat pengiriman saya: ';
