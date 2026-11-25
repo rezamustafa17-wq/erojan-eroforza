@@ -42,16 +42,17 @@
   reveal();
 })();
 
-// Bar WhatsApp mobile baru tampil setelah tombol utama di hero tidak terlihat, agar layar pertama tidak berisi tiga tombol sama.
+// Bar WhatsApp mobile tampil setiap kali tombol utama di hero tidak terlihat utuh: sudah terlewati saat
+// menggulir, atau masih di bawah layar pertama pada HP pendek. Saat tombol hero terlihat penuh, bar
+// disembunyikan agar layar tidak berisi dua tombol yang sama.
 (() => {
   const cta = document.querySelector('.hero-actions .button-light');
   if (!cta || !('IntersectionObserver' in window)) return;
   const root = document.documentElement;
   root.classList.add('sticky-ready');
   new IntersectionObserver(([entry]) => {
-    const passed = !entry.isIntersecting && entry.boundingClientRect.top < 0;
-    root.classList.toggle('show-sticky', passed);
-  }, {threshold: 0}).observe(cta);
+    root.classList.toggle('show-sticky', entry.intersectionRatio < 1);
+  }, {threshold: [0, 1]}).observe(cta);
 })();
 
 // Tombol mengambang disembunyikan saat bagian yang sudah memuat CTA sendiri terlihat, agar tidak menutupi teks.
