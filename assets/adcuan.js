@@ -8,7 +8,7 @@
   // bersihkan salinan lama sekali per perangkat agar pengunjung yang sudah datang hari ini ikut memakai teks baru.
   try {
     const PURGE = 'erojan_adcuan_cfg';
-    const VERSION = '2026-11-24-nomor-0813';
+    const VERSION = '2026-11-25-sapaan-pendek';
     if (localStorage.getItem(PURGE) !== VERSION) {
       Object.keys(localStorage).filter(k => k.indexOf('adcuanplus-fast-') === 0).forEach(k => localStorage.removeItem(k));
       localStorage.setItem(PURGE, VERSION);
